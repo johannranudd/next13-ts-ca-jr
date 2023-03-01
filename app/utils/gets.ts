@@ -9,6 +9,7 @@ export async function getData() {
     } else {
       // todo: return error here
       console.error(res.status, "An error occured in getData()");
+      return res.json();
     }
     // console.log(data.errors[0].message);
     // if (res.statusCode >= 200 || res.statusCode < 300) {
