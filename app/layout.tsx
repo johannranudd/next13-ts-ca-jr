@@ -5,6 +5,11 @@ import { ContextProvider } from "../context/context";
 import Navbar from "./components/navigation/Navbar";
 import Footer from "./components/navigation/Footer";
 
+export const metadata = {
+  title: "ca-johann-ranudd",
+  description: "Metadata description",
+};
+
 export default function RootLayout({
   children,
 }: {
