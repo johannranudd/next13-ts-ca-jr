@@ -4,6 +4,7 @@ import LogoImage from "@/images/stash-logo-transparent.png";
 import MenuIcon from "./MenuIcon";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
+import BtnColorMode from "../ui/BtnColorMode";
 
 export default function Navbar() {
   return (
@@ -13,6 +14,7 @@ export default function Navbar() {
           <Link href={"/"}>
             <Image src={LogoImage} alt="logo" width={80} />
           </Link>
+          <BtnColorMode />
           <MenuIcon />
           <DesktopMenu />
         </nav>
