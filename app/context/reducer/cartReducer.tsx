@@ -1,4 +1,5 @@
 import React from "react";
+// import { TProduct, IState } from "@/types/types";
 import { TProduct, IState } from "@/types/types";
 
 export const initialState: IState = {

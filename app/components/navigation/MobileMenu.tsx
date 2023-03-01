@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Link from "next/link";
-import { useGlobalContext } from "@/context/context";
+import { useGlobalContext } from "@/app/context/context";
 
 export default function MobileMenu() {
   const { menuIsOpen, setMenuIsOpen } = useGlobalContext();

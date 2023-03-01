@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useGlobalContext } from "@/context/context";
+import { useGlobalContext } from "@/app/context/context";
 
 export default function MenuIcon() {
   const { menuIsOpen, setMenuIsOpen } = useGlobalContext();

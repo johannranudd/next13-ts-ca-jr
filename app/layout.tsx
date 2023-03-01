@@ -1,7 +1,6 @@
 import "./globals.css";
-// import Head from "./head";
-import ColorThemeProvider from "../context/colorThemeProvider";
-import { ContextProvider } from "../context/context";
+import ColorThemeProvider from "./context/colorThemeProvider";
+import { ContextProvider } from "./context/context";
 import Navbar from "./components/navigation/Navbar";
 import Footer from "./components/navigation/Footer";
 
