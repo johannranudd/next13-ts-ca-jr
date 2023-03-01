@@ -9,7 +9,7 @@ import DesktopMenu from "./DesktopMenu";
 export default function Navbar() {
   return (
     <>
-      <header className="relative z-50 border-b border-b-black">
+      <header className="relative z-50 border-b border-b-black bg-white dark:bg-black dark:border-b-white">
         <nav className="grid grid-cols-3 items-center max-w-screen-xl m-auto h-16">
           <Link href={"/"}>
             <Image src={LogoImage} alt="logo" width={80} />

@@ -28,5 +28,6 @@ export default function ListOfProducts() {
         })}
       </Suspense>
     </ul>
+    // <h1>LIST</h1>
   );
 }

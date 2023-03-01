@@ -17,7 +17,6 @@ export default function RootLayout({
   //  children = page.tsx
   return (
     <html lang="en">
-      {/* <Head /> */}
       <body className="relative min-h-screen">
         <ContextProvider>
           <ColorThemeProvider>
