@@ -24,4 +24,4 @@ create color theme:
 
 `npm i next-themes`
 `npm i react-icons`
-`npm install react-icons --save`
+`npm i sharp` ?????
