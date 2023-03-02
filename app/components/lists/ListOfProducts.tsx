@@ -21,7 +21,7 @@ export default function ListOfProducts() {
               />
             </div>
             <h4>{title}</h4>
-            <BtnAddToCart id={id} />
+            <BtnAddToCart item={item} />
           </li>
         );
       })}

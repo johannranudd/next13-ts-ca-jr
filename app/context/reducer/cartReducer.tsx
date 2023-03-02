@@ -9,6 +9,7 @@ export const initialState: IState = {
 export function reducer(state: IState, action: any) {
   switch (action.type) {
     case "ADD":
+      // console.log(action.payload);
       return {
         ...state,
         products: [...state.products, action.payload],
