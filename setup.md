@@ -25,3 +25,6 @@ create color theme:
 `npm i next-themes`
 `npm i react-icons`
 `npm i sharp` ?????
+
+in case of error type JSX:
+`{/* @ts-expect-error Server Component */}`

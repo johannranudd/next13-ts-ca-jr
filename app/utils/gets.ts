@@ -1,9 +1,6 @@
 export async function getData() {
   try {
-    const res = await fetch("https://api.noroff.dev/api/v1/online-shop", {
-      next: { revalidate: 10 },
-    });
-    // console.log(res.ok);
+    const res = await fetch(`https://api.noroff.dev/api/v1/online-shop`);
     if (res.ok) {
       return await res.json();
     } else {
@@ -11,10 +8,6 @@ export async function getData() {
       console.error(res.status, "An error occured in getData()");
       return res.json();
     }
-    // console.log(data.errors[0].message);
-    // if (res.statusCode >= 200 || res.statusCode < 300) {
-    //   console.log(res);
-    // }
   } catch (error) {
     console.error(error, "An error occured in getData()");
   }

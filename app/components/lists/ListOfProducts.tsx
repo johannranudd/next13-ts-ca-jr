@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export default function ListOfProducts() {
   const data = use(getData());
+  console.log(data);
   return (
     <ul>
       {data?.map((item: IDataObject) => {
