@@ -6,11 +6,7 @@ export default function MenuIcon() {
   const { menuIsOpen, setMenuIsOpen } = useGlobalContext();
 
   function handleClick() {
-    if (!menuIsOpen) {
-      setMenuIsOpen(!menuIsOpen);
-    } else {
-      setMenuIsOpen(!menuIsOpen);
-    }
+    setMenuIsOpen(!menuIsOpen);
   }
 
   return (

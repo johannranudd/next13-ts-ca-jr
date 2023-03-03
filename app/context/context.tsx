@@ -7,13 +7,15 @@ import React, {
   Dispatch,
   SetStateAction,
   useReducer,
+  useEffect,
 } from "react";
 import { reducer, initialState } from "./reducer/cartReducer";
-import { TProduct, ContextInterface } from "@/types/types";
+import { ContextInterface, IState, IDataObject } from "@/types/types";
+import { getItem, setItem } from "../utils/storage/localstorage";
 
 export const Context = createContext<ContextInterface>({
   cartState: {},
-  dispatch: (): TProduct[] => [],
+  dispatch: (): IDataObject[] => [],
   menuIsOpen: false,
   setMenuIsOpen: () => false,
 });
@@ -21,6 +23,18 @@ export const Context = createContext<ContextInterface>({
 export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const [cartState, dispatch] = useReducer(reducer, initialState);
+
+  // useEffect(() => {
+  // setItem("cart", "[]");
+  // }, []);
+
+  useEffect(() => {
+    // console.log(cartState.products);
+    // const cart = getItem("cart");
+    // console.log(cart);
+    // setItem("cart", cartState);
+  }, [cartState]);
+
   return (
     <Context.Provider
       value={{ cartState, dispatch, menuIsOpen, setMenuIsOpen }}
