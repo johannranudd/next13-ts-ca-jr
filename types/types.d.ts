@@ -6,7 +6,7 @@
 // };
 
 export interface IState {
-  products: IDataObject[];
+  products: IDataObject[] | [];
 }
 
 export interface ContextInterface {

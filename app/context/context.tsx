@@ -24,15 +24,16 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const [cartState, dispatch] = useReducer(reducer, initialState);
 
-  // useEffect(() => {
-  // setItem("cart", "[]");
-  // }, []);
+  useEffect(() => {
+    setItem("cart", []);
+  }, []);
 
   useEffect(() => {
     // console.log(cartState.products);
     // const cart = getItem("cart");
     // console.log(cart);
-    // setItem("cart", cartState);
+    // console.log(typeof cart);
+    setItem("cart", cartState.products);
   }, [cartState]);
 
   return (
