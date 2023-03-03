@@ -11,7 +11,7 @@ import React, {
 } from "react";
 import { reducer, initialState } from "./reducer/cartReducer";
 import { ContextInterface, IState, IDataObject } from "@/types/types";
-import { getItem, setItem } from "../utils/storage/localstorage";
+import { getItem, setItem } from "@/app/utils/storage/localstorage";
 
 export const Context = createContext<ContextInterface>({
   cartState: {},
@@ -25,14 +25,6 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [cartState, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    setItem("cart", []);
-  }, []);
-
-  useEffect(() => {
-    // console.log(cartState.products);
-    // const cart = getItem("cart");
-    // console.log(cart);
-    // console.log(typeof cart);
     setItem("cart", cartState.products);
   }, [cartState]);
 

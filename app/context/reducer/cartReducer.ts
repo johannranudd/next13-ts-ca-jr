@@ -1,17 +1,13 @@
 import { IState, IDataObject } from "@/types/types";
 import { getItem } from "@/app/utils/storage/localstorage";
 
-export const initialState: any = {
+export const initialState: IState = {
   products: getItem("cart"),
 };
-
-// console.log(typeof );
-// products: getItem("cart"),
 
 export function reducer(state: IState, action: any) {
   switch (action.type) {
     case "ADD":
-      // const cart = getItem();
       return {
         ...state,
         products: [...state.products, action.payload],
