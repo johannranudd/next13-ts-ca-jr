@@ -1,12 +1,12 @@
 // context
-export type TProduct = {
-  id: string;
-  name: string;
-  price: number;
-};
+// export type TProduct = {
+//   id: string;
+//   name: string;
+//   price: number;
+// };
 
 export interface IState {
-  products: TProduct[];
+  products: IDataObject[] | [];
 }
 
 export interface ContextInterface {

@@ -1,15 +1,13 @@
-import React from "react";
-// import { TProduct, IState } from "@/types/types";
-import { TProduct, IState } from "@/types/types";
+import { IState, IDataObject } from "@/types/types";
+import { getItem } from "@/app/utils/storage/localstorage";
 
 export const initialState: IState = {
-  products: [],
+  products: getItem("cart"),
 };
 
 export function reducer(state: IState, action: any) {
   switch (action.type) {
     case "ADD":
-      // console.log(action.payload);
       return {
         ...state,
         products: [...state.products, action.payload],

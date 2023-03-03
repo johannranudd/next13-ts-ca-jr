@@ -6,6 +6,7 @@ import BtnAddToCart from "../ui/BtnAddToCart";
 
 export default function ListOfProducts() {
   const data = use(getData());
+
   return (
     <ul className="grid auto-grid-200">
       {data?.map((item: IDataObject) => {
