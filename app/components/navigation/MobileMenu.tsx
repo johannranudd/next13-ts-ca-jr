@@ -14,7 +14,6 @@ export default function MobileMenu() {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -22,6 +21,7 @@ export default function MobileMenu() {
 
   return (
     <div
+      onClick={() => setMenuIsOpen(false)}
       className={`absolute w-screen z-40 flex flex-col bg-red-500 duration-300 ${
         menuIsOpen ? "top-16" : "-top-16"
       }`}

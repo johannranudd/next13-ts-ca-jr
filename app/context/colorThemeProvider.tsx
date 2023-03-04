@@ -19,5 +19,3 @@ const ColorThemeProvider = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default ColorThemeProvider;
-
-// enableSystem={true} attribute="class"
