@@ -1,17 +1,14 @@
 "use client";
 import React, {
-  ReactNode,
   useState,
   createContext,
   useContext,
-  Dispatch,
-  SetStateAction,
   useReducer,
   useEffect,
 } from "react";
 import { reducer, initialState } from "./reducer/cartReducer";
-import { ContextInterface, IState, IDataObject } from "@/types/types";
-import { getItem, setItem } from "@/app/utils/storage/localstorage";
+import { ContextInterface, IDataObject } from "@/types/types";
+import { setItem } from "@/app/utils/storage/localstorage";
 
 export const Context = createContext<ContextInterface>({
   cartState: {},

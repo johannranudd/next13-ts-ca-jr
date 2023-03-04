@@ -1,6 +1,6 @@
 import "./globals.css";
-import ColorThemeProvider from "./context/colorThemeProvider";
 import { ContextProvider } from "./context/context";
+// import ColorThemeProvider from "./context/colorThemeProvider";
 import Navbar from "./components/navigation/Navbar";
 import Footer from "./components/navigation/Footer";
 
@@ -19,11 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative min-h-screen">
         <ContextProvider>
-          <ColorThemeProvider>
-            <Navbar />
-            {children}
-            <Footer />
-          </ColorThemeProvider>
+          {/* <ColorThemeProvider> */}
+          <Navbar />
+          {children}
+          <Footer />
+          {/* </ColorThemeProvider> */}
         </ContextProvider>
       </body>
     </html>

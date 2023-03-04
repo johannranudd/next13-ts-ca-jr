@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { ThemeProvider } from "next-themes";
 
 const ColorThemeProvider = ({ children }: { children: React.ReactNode }) => {
@@ -11,3 +10,5 @@ const ColorThemeProvider = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default ColorThemeProvider;
+
+// enableSystem={true} attribute="class"
