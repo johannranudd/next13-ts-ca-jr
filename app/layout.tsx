@@ -1,6 +1,6 @@
 import "./globals.css";
 import { ContextProvider } from "./context/context";
-// import ColorThemeProvider from "./context/colorThemeProvider";
+import ColorThemeProvider from "./context/colorThemeProvider";
 import Navbar from "./components/navigation/Navbar";
 import Footer from "./components/navigation/Footer";
 
@@ -15,17 +15,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   //  children = page.tsx
+
   return (
     <html lang="en">
       <body className="relative min-h-screen">
         <ContextProvider>
-          {/* <ColorThemeProvider> */}
-          <Navbar />
-          {children}
-          <Footer />
-          {/* </ColorThemeProvider> */}
+          <ColorThemeProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </ColorThemeProvider>
         </ContextProvider>
       </body>
     </html>
   );
 }
+
+// suppressHydrationWarning
