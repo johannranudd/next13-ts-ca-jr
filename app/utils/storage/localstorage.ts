@@ -13,5 +13,9 @@ export function getItem(key: string): IDataObject[] {
 }
 
 export function setItem(key: string, cartState: any) {
-  localStorage.setItem(key, JSON.stringify(cartState));
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(cartState));
+  } else {
+    return getItem("cart");
+  }
 }

@@ -3,6 +3,7 @@ import { getData } from "@/app/utils/gets";
 import { IDataObject } from "@/types/types";
 import Image from "next/image";
 import BtnAddToCart from "../ui/BtnAddToCart";
+import { setItem } from "@/app/utils/storage/localstorage";
 
 export default function ListOfProducts() {
   const data = use(getData());
