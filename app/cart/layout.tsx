@@ -4,7 +4,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main>
+    <main className="mb-[8rem]">
       <div>{children}</div>
     </main>
   );

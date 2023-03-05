@@ -35,5 +35,6 @@ interface IDataObject {
   rating: number;
   tags: Array<string>;
   reviews: Array<IReviews>;
+  amountInCart: number;
 }
 // END response object for fetching data from https://api.noroff.dev/api/v1/online-shop

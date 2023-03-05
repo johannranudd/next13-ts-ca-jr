@@ -21,8 +21,13 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const [cartState, dispatch] = useReducer(reducer, initialState);
 
+  // useEffect(() => {
+  //   dispatch({ type: "INITIAL" });
+  // }, []);
+
   useEffect(() => {
     setItem("cart", cartState.products);
+    console.log(cartState);
   }, [cartState]);
 
   return (

@@ -1,9 +1,23 @@
 import { IState, IDataObject } from "@/types/types";
-import { getItem } from "@/app/utils/storage/localstorage";
+import { getItem, setItem } from "@/app/utils/storage/localstorage";
 
 export const initialState: IState = {
   products: getItem("cart"),
 };
+
+// function getUniqueItems(products: Array<IDataObject>) {
+//   const newArr: Array<IDataObject> = [];
+//   products.reduce((total: any, value: IDataObject) => {
+//     if (!total.includes(value.id)) {
+//       total.push(value.id);
+//       newArr.push({ ...value, item });
+//     }
+//     return total;
+//   }, []);
+
+//   // console.log(newArr);
+//   return newArr;
+// }
 
 export function reducer(state: IState, action: any) {
   switch (action.type) {

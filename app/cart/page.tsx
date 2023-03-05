@@ -3,7 +3,7 @@ import { Suspense } from "react";
 export default function CartPage() {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading cart...</div>}>
         <CartList />
       </Suspense>
     </>

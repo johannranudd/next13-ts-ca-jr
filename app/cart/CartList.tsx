@@ -4,13 +4,36 @@ import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import Image from "next/image";
 import { IDataObject } from "@/types/types";
 import Discounted from "./Discounted";
+import { useEffect, useState } from "react";
+import { getItem } from "../utils/storage/localstorage";
+
+function getUniqueItems(products: Array<IDataObject>) {
+  const newArr: Array<IDataObject> = [];
+  products.reduce((total: any, value: IDataObject) => {
+    if (!total.includes(value.id)) {
+      total.push(value.id);
+      newArr.push({ ...value });
+    }
+    return total;
+  }, []);
+
+  console.log(newArr);
+  return newArr;
+}
 
 export default function CartList() {
   const { cartState } = useGlobalContext();
   const { products } = cartState;
+  const [cartSet, setCartSet] = useState(Array<IDataObject>);
+
+  useEffect(() => {
+    const uniqueArray: Array<IDataObject> = getUniqueItems(products);
+    setCartSet(uniqueArray);
+  }, [products]);
+
   return (
     <ul className="py-4 w-[90%] mx-auto max-w-[400px] sm:max-w-[600px]">
-      {products?.map((product: IDataObject) => {
+      {cartSet?.map((product: IDataObject) => {
         const { id, title, price, discountedPrice, imageUrl } = product;
         return (
           <li key={id} className="py-4 sm:flex sm:justify-between sm:items-end">
@@ -22,7 +45,6 @@ export default function CartList() {
                 className="object-cover"
               />
             </div>
-            {/* flex flex-row-reverse justify-between sm:w-full sm:h-full sm:flex-row sm:bg-red-500 */}
             <div className="flex flex-row-reverse justify-between sm:w-full sm:flex-row">
               <div className="flex flex-col justify-between sm:space-y-20 ml-36">
                 <button>
@@ -45,3 +67,15 @@ export default function CartList() {
     </ul>
   );
 }
+
+// function getUniqueItems(products: Array<IDataObject>): Array<IDataObject> {
+//   let newArr: Array<IDataObject> = [];
+//   products.sort((a, b): any => {
+//     if (a.id !== b.id) {
+//       newArr.push(a);
+//     } else {
+//       return;
+//     }
+//   });
+//   return newArr;
+// }
