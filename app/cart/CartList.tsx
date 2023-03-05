@@ -5,17 +5,22 @@ import Image from "next/image";
 import { IDataObject } from "@/types/types";
 import Discounted from "./Discounted";
 import { useEffect, useState } from "react";
-import { getNumberOfProductsInCart, getUniqueItems } from "../utils/generic";
+import {
+  getNumberOfProductsInCart,
+  getUniqueItems,
+  sortByTitle,
+} from "../utils/generic";
 
 export default function CartList() {
-  const { cartState } = useGlobalContext();
+  const { cartState, dispatch } = useGlobalContext();
   const { products } = cartState;
   const [uniqueCart, setUniqueCart] = useState(Array<IDataObject>);
 
   useEffect(() => {
     const uniqueArray = getUniqueItems(products);
     const numberedArray = getNumberOfProductsInCart(uniqueArray, products);
-    setUniqueCart(numberedArray);
+    const sortedByTitle = sortByTitle(numberedArray);
+    setUniqueCart(sortedByTitle);
   }, [products]);
 
   return (
@@ -35,10 +40,18 @@ export default function CartList() {
             </div>
             <div className="flex flex-row-reverse justify-between sm:w-full sm:flex-row">
               <div className="flex flex-col justify-between sm:space-y-20 ml-36">
-                <button>
+                <button
+                  onClick={() =>
+                    dispatch({ type: "INCREMENT", payload: product })
+                  }
+                >
                   <BsChevronUp />
                 </button>
-                <button>
+                <button
+                  onClick={() =>
+                    dispatch({ type: "DECREMENT", payload: product })
+                  }
+                >
                   <BsChevronDown />
                 </button>
               </div>

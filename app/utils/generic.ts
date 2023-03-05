@@ -1,5 +1,9 @@
 import { IDataObject } from "@/types/types";
 
+export function sortByTitle(array: Array<IDataObject>) {
+  return array.sort((a, b) => a.title.localeCompare(b.title));
+}
+
 export function getUniqueItems(products: Array<IDataObject>) {
   const uniqueArray: Array<IDataObject> = [];
 

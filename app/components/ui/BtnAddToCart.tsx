@@ -5,7 +5,7 @@ import { useGlobalContext } from "@/app/context/context";
 export default function BtnAddToCart({ item }: any) {
   const { cartState, dispatch } = useGlobalContext();
   return (
-    <button onClick={() => dispatch({ type: "ADD", payload: item })}>
+    <button onClick={() => dispatch({ type: "INCREMENT", payload: item })}>
       Add to cart
     </button>
   );

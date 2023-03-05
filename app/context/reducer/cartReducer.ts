@@ -9,10 +9,22 @@ export function reducer(state: IState, action: any) {
   switch (action.type) {
     // case "INITIAL":
     //   return state;
-    case "ADD":
+    case "INCREMENT":
       return {
         ...state,
         products: [...state.products, action.payload],
+      };
+    case "DECREMENT":
+      let newArr = state.products.slice();
+      let index = state.products.findIndex((item) => {
+        if (item.id === action.payload.id) {
+          return item;
+        }
+      });
+      newArr.splice(index, 1);
+      return {
+        ...state,
+        products: newArr,
       };
 
     case "CHANGE":
