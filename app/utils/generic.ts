@@ -1,5 +1,11 @@
 import { IDataObject } from "@/types/types";
 
+export function getTotals(array: Array<any>): number {
+  return array.reduce((total, current) => {
+    return Number(total) + Number(current.discountedPrice);
+  }, []);
+}
+
 export function sortByTitle(array: Array<IDataObject>) {
   return array.sort((a, b) => a.title.localeCompare(b.title));
 }

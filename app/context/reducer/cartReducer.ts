@@ -1,8 +1,11 @@
 import { IState, IDataObject } from "@/types/types";
 import { getItem, setItem } from "@/app/utils/storage/localstorage";
+import { getTotals } from "@/app/utils/generic";
 
 export const initialState: IState = {
   products: getItem("cart"),
+  itemsInCart: 0,
+  totalPrice: 0,
 };
 
 export function reducer(state: IState, action: any) {
@@ -13,6 +16,7 @@ export function reducer(state: IState, action: any) {
       return {
         ...state,
         products: [...state.products, action.payload],
+        itemsInCart: state.itemsInCart + 1,
       };
     case "DECREMENT":
       let newArr = state.products.slice();
@@ -25,8 +29,15 @@ export function reducer(state: IState, action: any) {
       return {
         ...state,
         products: newArr,
+        itemsInCart: state.itemsInCart - 1,
       };
 
+    case "UPDATE_TOTAL":
+      const totalPrice = getTotals(state.products);
+      return {
+        ...state,
+        totalPrice: totalPrice,
+      };
     case "CHANGE":
     case "DELETE":
     default: {

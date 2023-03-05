@@ -7,6 +7,8 @@
 
 export interface IState {
   products: IDataObject[] | [];
+  itemsInCart: number;
+  totalPrice: number;
 }
 
 export interface ContextInterface {

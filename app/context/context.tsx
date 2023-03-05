@@ -26,12 +26,15 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
   //   const data = await getData();
   //   dispatch({ type: "INITIAL", payload: data });
   // }
-  // useEffect(() => {
-  //   fetchOnClient();
-  // }, []);
+  useEffect(() => {
+    // fetchOnClient();
+    dispatch({ type: "UPDATE_TOTAL" });
+    // console.log("TOTAL::", cartState.total);
+  }, [cartState.itemsInCart]);
 
   useEffect(() => {
     setItem("cart", cartState.products);
+    // dispatch({ type: "UPDATE_TOTAL" });
     // console.log("STATE IN CONTEXT:: ", cartState.products);
   }, [cartState]);
 
