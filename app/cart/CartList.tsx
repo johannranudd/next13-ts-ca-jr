@@ -3,12 +3,13 @@ import { useGlobalContext } from "../context/context";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import Image from "next/image";
 import { IDataObject } from "@/types/types";
-import Discounted from "./Discounted";
+import PriceComponent from "./PriceComponent";
 import { useEffect, useState } from "react";
 import {
   getNumberOfProductsInCart,
   getUniqueItems,
   sortByTitle,
+  getTotals,
 } from "../utils/generic";
 
 export default function CartList() {
@@ -25,9 +26,15 @@ export default function CartList() {
 
   return (
     <ul className="py-4 w-[90%] mx-auto max-w-[400px] sm:max-w-[600px]">
-      {uniqueCart?.map((product: IDataObject) => {
+      {uniqueCart?.map((product: any) => {
         const { id, title, price, discountedPrice, imageUrl, amountInCart } =
           product;
+
+        const totalItemsOfOneType: number = amountInCart
+          ? Number((discountedPrice * amountInCart).toFixed(2))
+          : 0;
+        // dispatch({ type: "UPDATE_TOTAL" });
+
         return (
           <li key={id} className="py-4 sm:flex sm:justify-between sm:items-end">
             <div className="relative w-full h-48 sm:w-48">
@@ -39,7 +46,7 @@ export default function CartList() {
               />
             </div>
             <div className="flex flex-row-reverse justify-between sm:w-full sm:flex-row">
-              <div className="flex flex-col justify-between sm:space-y-20 ml-36">
+              <div className="flex flex-col justify-between sm:space-y-20 sm:ml-36">
                 <button
                   onClick={() =>
                     dispatch({ type: "INCREMENT", payload: product })
@@ -59,8 +66,11 @@ export default function CartList() {
                 <h4>
                   Title: <strong>{title}</strong>
                 </h4>
-                <p>Amount in cart: {amountInCart}</p>
-                <Discounted {...product} />
+
+                <PriceComponent
+                  product={product}
+                  totalItemsOfOneType={totalItemsOfOneType}
+                />
               </div>
             </div>
           </li>
@@ -69,15 +79,3 @@ export default function CartList() {
     </ul>
   );
 }
-
-// function getUniqueItems(products: Array<IDataObject>): Array<IDataObject> {
-//   let newArr: Array<IDataObject> = [];
-//   products.sort((a, b): any => {
-//     if (a.id !== b.id) {
-//       newArr.push(a);
-//     } else {
-//       return;
-//     }
-//   });
-//   return newArr;
-// }
