@@ -9,7 +9,6 @@ import {
   getNumberOfProductsInCart,
   getUniqueItems,
   sortByTitle,
-  getTotals,
 } from "../utils/generic";
 
 export default function CartList() {
@@ -24,16 +23,13 @@ export default function CartList() {
     setUniqueCart(sortedByTitle);
   }, [products]);
 
+  if (products.length === 0) return <h1>No items in cart</h1>;
+
   return (
     <ul className="py-4 w-[90%] mx-auto max-w-[400px] sm:max-w-[600px]">
-      {uniqueCart?.map((product: any) => {
+      {uniqueCart?.map((product: IDataObject) => {
         const { id, title, price, discountedPrice, imageUrl, amountInCart } =
           product;
-
-        const totalItemsOfOneType: number = amountInCart
-          ? Number((discountedPrice * amountInCart).toFixed(2))
-          : 0;
-        // dispatch({ type: "UPDATE_TOTAL" });
 
         return (
           <li key={id} className="py-4 sm:flex sm:justify-between sm:items-end">
@@ -66,11 +62,7 @@ export default function CartList() {
                 <h4>
                   Title: <strong>{title}</strong>
                 </h4>
-
-                <PriceComponent
-                  product={product}
-                  totalItemsOfOneType={totalItemsOfOneType}
-                />
+                <PriceComponent {...product} />
               </div>
             </div>
           </li>

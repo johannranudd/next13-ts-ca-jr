@@ -4,7 +4,7 @@ import { useGlobalContext } from "../context/context";
 export default function TotalCheckout() {
   const { cartState } = useGlobalContext();
   const { totalPrice } = cartState;
-  const flooredPrice = totalPrice.toFixed(2);
+  const flooredTotalPrice = totalPrice.toFixed(2);
 
-  return <div>{flooredPrice}</div>;
+  return <div>{flooredTotalPrice}</div>;
 }
