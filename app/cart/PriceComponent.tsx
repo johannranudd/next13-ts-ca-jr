@@ -4,39 +4,31 @@ export default function PriceComponent({
   discountedPrice,
   price,
   amountInCart,
+  title,
 }: IDataObject) {
   const totalPriceSingleItem: number = amountInCart
     ? Number((discountedPrice * amountInCart).toFixed(2))
     : 0;
-
-  if (discountedPrice < price) {
-    return (
-      <>
-        <p>
-          Price per Item:{" "}
-          <strong>
-            {discountedPrice}{" "}
-            <small className="line-through text-gray-500">{price} </small>
-          </strong>
-        </p>
-        <p>In cart: {amountInCart}</p>
-        <p>
-          <strong>{discountedPrice}</strong> x <strong>{amountInCart}</strong> ={" "}
-          <strong className="underline">{totalPriceSingleItem}</strong> Nok
-        </p>
-      </>
-    );
-  }
   return (
-    <>
+    <div className="flex flex-col sm:items-end space-y-2">
+      <h4>
+        <strong>{title}</strong>
+      </h4>
       <p>
-        Price per Item: <strong>{discountedPrice}</strong>
+        Price:{" "}
+        <strong>
+          {discountedPrice}{" "}
+          {discountedPrice < price && (
+            <small className="line-through text-gray-500">{price} </small>
+          )}
+        </strong>
       </p>
-      <p>In cart: {amountInCart}</p>
       <p>
-        <strong>{discountedPrice}</strong> x <strong>{amountInCart}</strong> ={" "}
-        <strong className="underline">{totalPriceSingleItem}</strong> Nok
+        In cart: <strong>{amountInCart}</strong>
       </p>
-    </>
+      <p>
+        Total: <strong>{totalPriceSingleItem}</strong>
+      </p>
+    </div>
   );
 }
