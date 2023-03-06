@@ -5,11 +5,8 @@ import Image from "next/image";
 import { IDataObject } from "@/types/types";
 import PriceComponent from "./PriceComponent";
 import { useEffect, useState } from "react";
-import {
-  getNumberOfProductsInCart,
-  getUniqueItems,
-  sortByTitle,
-} from "../utils/generic";
+import { getUniqueNumberedSortedCart } from "../utils/generic";
+import Link from "next/link";
 
 export default function CartList() {
   const { cartState, dispatch } = useGlobalContext();
@@ -17,16 +14,26 @@ export default function CartList() {
   const [uniqueCart, setUniqueCart] = useState(Array<IDataObject>);
 
   useEffect(() => {
-    const uniqueArray = getUniqueItems(products);
-    const numberedArray = getNumberOfProductsInCart(uniqueArray, products);
-    const sortedByTitle = sortByTitle(numberedArray);
-    setUniqueCart(sortedByTitle);
+    const getFinalCart = getUniqueNumberedSortedCart(products);
+    setUniqueCart(getFinalCart);
   }, [products]);
 
-  if (products.length === 0) return <h1>No items in cart</h1>;
+  if (products.length === 0) {
+    return (
+      <div className="flex flex-col items-center">
+        <h1>No items in cart</h1>
+        <Link
+          href={`/`}
+          className="p-2 rounded-md border border-black hover:bg-black hover:text-white dark:bg-white dark:text-black dark:hover:text-white dark:hover:bg-black dark:hover:border-white duration-300"
+        >
+          Back to home page
+        </Link>
+      </div>
+    );
+  }
 
   return (
-    <ul className="py-4 w-[90%] mx-auto max-w-[400px] sm:max-w-[600px]">
+    <ul className="py-4 mb-16 w-[90%] mx-auto max-w-[400px] sm:max-w-[600px]">
       {uniqueCart?.map((product: IDataObject) => {
         const { id, title, price, discountedPrice, imageUrl, amountInCart } =
           product;

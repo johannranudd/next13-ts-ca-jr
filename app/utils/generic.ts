@@ -1,5 +1,12 @@
 import { IDataObject } from "@/types/types";
 
+export function getUniqueNumberedSortedCart(array: Array<IDataObject>) {
+  const uniqueArray = getUniqueItems(array);
+  const numberedArray = getNumberOfProductsInCart(uniqueArray, array);
+  const sortedByTitle = sortByTitle(numberedArray);
+  return sortedByTitle;
+}
+
 export function getTotals(array: Array<any>): number {
   if (array.length === 0) {
     return 0;

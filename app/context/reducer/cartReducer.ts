@@ -32,8 +32,12 @@ export function reducer(state: IState, action: any) {
         ...state,
         totalPrice: totalPrice,
       };
-    case "CHANGE":
-    case "DELETE":
+    case "CLEAR_CART":
+      return {
+        products: [],
+        itemsInCart: 0,
+        totalPrice: 0,
+      };
     default: {
       //   throw Error("Unknown action: " + action.type);
       return state;
