@@ -1,5 +1,5 @@
-import { IState, IDataObject } from "@/types/types";
-import { getItem, setItem } from "@/app/utils/storage/localstorage";
+import { IState } from "@/types/types";
+import { getItem } from "@/app/utils/storage/localstorage";
 import { getTotals } from "@/app/utils/generic";
 
 export const initialState: IState = {
@@ -10,8 +10,6 @@ export const initialState: IState = {
 
 export function reducer(state: IState, action: any) {
   switch (action.type) {
-    // case "INITIAL":
-    //   return state;
     case "INCREMENT":
       return {
         ...state,
@@ -20,11 +18,7 @@ export function reducer(state: IState, action: any) {
       };
     case "DECREMENT":
       let newArr = state.products.slice();
-      let index = state.products.findIndex((item) => {
-        if (item.id === action.payload.id) {
-          return item;
-        }
-      });
+      let index = newArr.findIndex((item) => item.id === action.payload.id);
       newArr.splice(index, 1);
       return {
         ...state,
@@ -38,8 +32,12 @@ export function reducer(state: IState, action: any) {
         ...state,
         totalPrice: totalPrice,
       };
-    case "CHANGE":
-    case "DELETE":
+    case "CLEAR_CART":
+      return {
+        products: [],
+        itemsInCart: 0,
+        totalPrice: 0,
+      };
     default: {
       //   throw Error("Unknown action: " + action.type);
       return state;

@@ -1,6 +1,16 @@
 import { IDataObject } from "@/types/types";
 
+export function getUniqueNumberedSortedCart(array: Array<IDataObject>) {
+  const uniqueArray = getUniqueItems(array);
+  const numberedArray = getNumberOfProductsInCart(uniqueArray, array);
+  const sortedByTitle = sortByTitle(numberedArray);
+  return sortedByTitle;
+}
+
 export function getTotals(array: Array<any>): number {
+  if (array.length === 0) {
+    return 0;
+  }
   return array.reduce((total, current) => {
     return Number(total) + Number(current.discountedPrice);
   }, []);
@@ -13,10 +23,10 @@ export function sortByTitle(array: Array<IDataObject>) {
 export function getUniqueItems(products: Array<IDataObject>) {
   const uniqueArray: Array<IDataObject> = [];
 
-  products.reduce((total: any, value: IDataObject) => {
+  products.reduce((total: Array<string>, value: IDataObject) => {
     if (!total.includes(value.id)) {
       total.push(value.id);
-      uniqueArray.push({ ...value });
+      uniqueArray.push(value);
     }
     return total;
   }, []);
@@ -45,10 +55,9 @@ export function getNumberOfProductsInCart(
     }
   );
 
-  const numberedArray: any = uniqueArray.map((item, index) => {
+  const numberedArray: Array<any> = uniqueArray.map((item, index) => {
     if (item.id === objectWithIdAndAmount[index].id) {
-      const amountInCart: undefined | number =
-        objectWithIdAndAmount[index].amountInCart;
+      const amountInCart: number = objectWithIdAndAmount[index].amountInCart;
       return {
         ...item,
         amountInCart: amountInCart,

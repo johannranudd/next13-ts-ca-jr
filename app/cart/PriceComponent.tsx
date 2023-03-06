@@ -1,5 +1,13 @@
-export default function PriceComponent({ product, totalItemsOfOneType }: any) {
-  const { discountedPrice, price, amountInCart } = product;
+import { IDataObject } from "@/types/types";
+
+export default function PriceComponent({
+  discountedPrice,
+  price,
+  amountInCart,
+}: IDataObject) {
+  const totalPriceSingleItem: number = amountInCart
+    ? Number((discountedPrice * amountInCart).toFixed(2))
+    : 0;
 
   if (discountedPrice < price) {
     return (
@@ -14,7 +22,7 @@ export default function PriceComponent({ product, totalItemsOfOneType }: any) {
         <p>In cart: {amountInCart}</p>
         <p>
           <strong>{discountedPrice}</strong> x <strong>{amountInCart}</strong> ={" "}
-          <strong className="underline">{totalItemsOfOneType}</strong> Nok
+          <strong className="underline">{totalPriceSingleItem}</strong> Nok
         </p>
       </>
     );
@@ -27,7 +35,7 @@ export default function PriceComponent({ product, totalItemsOfOneType }: any) {
       <p>In cart: {amountInCart}</p>
       <p>
         <strong>{discountedPrice}</strong> x <strong>{amountInCart}</strong> ={" "}
-        <strong className="underline">{totalItemsOfOneType}</strong> Nok
+        <strong className="underline">{totalPriceSingleItem}</strong> Nok
       </p>
     </>
   );

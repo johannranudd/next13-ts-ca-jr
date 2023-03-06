@@ -11,7 +11,7 @@ export default async function ProductDetailPage({
 }: IParams) {
   // console.log(productId);
   return (
-    <div>
+    <div className="mb-28 mt-20">
       <h1>ProductDetailPage</h1>
       <p>
         displaying product: <strong>{productId}</strong>
