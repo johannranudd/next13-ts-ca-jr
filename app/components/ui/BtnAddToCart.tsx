@@ -1,5 +1,4 @@
 "use client";
-
 import { useGlobalContext } from "@/app/context/context";
 // import { IDataObject } from "@/types/types";
 export default function BtnAddToCart({ item }: any) {
@@ -10,4 +9,3 @@ export default function BtnAddToCart({ item }: any) {
     </button>
   );
 }
-// { id }: { id: string },
