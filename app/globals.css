@@ -10,16 +10,15 @@
   }
 }
 @layer utilities {
+  .auto-grid-200 {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-
-.auto-grid-200 {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 html,
