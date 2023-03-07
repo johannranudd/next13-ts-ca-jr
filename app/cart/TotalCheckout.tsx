@@ -1,20 +1,25 @@
 "use client";
-// import Link from "next/link";
 import { useGlobalContext } from "../context/context";
-import { useState } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/navigation";
 
 export default function TotalCheckout() {
   const { cartState } = useGlobalContext();
   const { totalPrice } = cartState;
   const flooredTotalPrice = totalPrice.toFixed(2);
-  const [creditCard, setCreditCard] = useState<number>();
   const router = useRouter();
+  const ccInputRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
-    if (creditCard?.toString().length === 4) {
-      router.push(`/checkout`);
+    if (ccInputRef.current && ccInputRef.current.previousElementSibling) {
+      if (ccInputRef.current.value.length === 4) {
+        router.push(`/checkout`);
+      } else {
+        ccInputRef.current.style.border = "1px solid red";
+        ccInputRef.current.previousElementSibling.innerHTML =
+          "Fake credit card number must be 4 digits";
+      }
     }
   }
 
@@ -35,10 +40,9 @@ export default function TotalCheckout() {
           type="number"
           name="cc"
           id="cc"
-          value={creditCard}
-          onChange={(e) => setCreditCard(parseInt(e.target.value))}
+          ref={ccInputRef}
           placeholder="Input fake credit card number: 4 digits"
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border border-black rounded-md"
         />
         <button
           type="submit"
