@@ -12,7 +12,7 @@ export function getItem(key: string): IDataObject[] {
   }
 }
 
-export function setItem(key: string, cartState: any) {
+export function setItem(key: string, cartState: IDataObject[]) {
   if (typeof window !== "undefined") {
     localStorage.setItem(key, JSON.stringify(cartState));
   } else {
