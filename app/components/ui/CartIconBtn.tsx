@@ -11,7 +11,7 @@ export default function CartIconBtn() {
 
   return (
     <Link href={`/cart`} className="relative">
-      <div className="absolute bottom-0 -right-[5px] flex justify-center items-center bg-green-500 dark:bg-red-500 h-[18px] w-[18px] rounded-full">
+      <div className="absolute bottom-0 -right-[5px] flex justify-center items-center bg-blabla dark:bg-red-500 h-[18px] w-[18px] rounded-full">
         {cartState.products.length}
       </div>
       <AiOutlineShoppingCart className="text-[2rem]" />

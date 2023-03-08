@@ -56,13 +56,13 @@ function TagsComponent({ tags }: any) {
   if (tags.length === 0) return <div></div>;
   return (
     <div>
-      {tags && (
+      {
         <p>
           {tags?.map((tag: string, index: number) => {
             return <small key={index}>#{`${tag} `}</small>;
           })}
         </p>
-      )}
+      }
     </div>
   );
 }

@@ -8,6 +8,14 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
+  /* :root {
+    --blalba: #b00b69;
+  }
+
+  :root[class="dark"] {
+    --blalba: #0084ff;
+  } */
 }
 @layer utilities {
   .auto-grid-200 {
