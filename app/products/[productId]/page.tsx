@@ -2,6 +2,7 @@ import { getSingleProduct } from "@/app/utils/gets";
 import { IDataObject } from "@/types/types";
 import Image from "next/image";
 import { use } from "react";
+import { getData } from "@/app/utils/gets";
 // import { IReviews } from "@/types/types";
 // import PriceComponent from "@/app/cart/PriceComponent";
 import RatingComponent from "./RatingComponent";
@@ -9,13 +10,19 @@ import TagsComponent from "./TagComponent";
 import SingleItemPriceComponent from "./SingleItemPriceComponent";
 import ReviewsComponent from "./ReviewsComponent";
 
-interface IParams {
-  params: {
-    productId: string;
-    searchParams: {};
-  };
+export async function generateStaticParams() {
+  const data = await getData();
+  return data?.map((product: any) => ({
+    productId: product.id,
+  }));
 }
-export default function ProductDetailPage({ params: { productId } }: IParams) {
+
+export default function ProductDetailPage({
+  params,
+}: {
+  params: { productId: string };
+}) {
+  const { productId } = params;
   const data: IDataObject = use(getSingleProduct(productId));
   const {
     id,
