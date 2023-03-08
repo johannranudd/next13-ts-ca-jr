@@ -26,6 +26,8 @@ export default function ProductDetailPage({ params: { productId } }: IParams) {
     reviews,
   } = data;
 
+  // todo: put back colors to fit theme
+
   return (
     <div key={id} className="mb-28 mt-20 bg-[#def]">
       <h1>{title}</h1>

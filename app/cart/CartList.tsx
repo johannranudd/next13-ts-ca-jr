@@ -24,7 +24,7 @@ export default function CartList() {
         <h1>No items in cart</h1>
         <Link
           href={`/`}
-          className="p-2 rounded-md border border-black hover:bg-black hover:text-white dark:bg-white dark:text-black dark:hover:text-white dark:hover:bg-black dark:hover:border-white duration-300"
+          className="p-2 rounded-md border border-2 border-thirdClr hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
         >
           Back to home page
         </Link>
@@ -33,7 +33,7 @@ export default function CartList() {
   }
 
   return (
-    <ul className="py-4 mb-16 w-[90%] mx-auto max-w-[400px] sm:max-w-[650px]">
+    <ul className="py-4 mb-16 w-[95%] mx-auto max-w-[400px] sm:max-w-[650px]">
       {uniqueCart?.map((product: IDataObject) => {
         const { id, title, price, discountedPrice, imageUrl, amountInCart } =
           product;

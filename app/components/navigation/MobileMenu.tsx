@@ -22,7 +22,7 @@ export default function MobileMenu() {
   return (
     <div
       onClick={() => setMenuIsOpen(false)}
-      className={`absolute w-screen -z-10 flex flex-col bg-red-500 duration-300 ${
+      className={`absolute w-screen -z-50 flex flex-col bg-secondary text-primary dark:bg-primary dark:text-secondary duration-300 ${
         menuIsOpen ? "top-16" : "-top-[150%]"
       }`}
     >
