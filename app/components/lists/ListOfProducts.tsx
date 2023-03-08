@@ -7,7 +7,6 @@ import Link from "next/link";
 
 export default function ListOfProducts() {
   const data = use(getData());
-  console.log(data);
 
   return (
     <ul className="grid auto-grid-200">
