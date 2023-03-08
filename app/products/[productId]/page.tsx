@@ -2,9 +2,12 @@ import { getSingleProduct } from "@/app/utils/gets";
 import { IDataObject } from "@/types/types";
 import Image from "next/image";
 import { use } from "react";
-import { IReviews } from "@/types/types";
-import PriceComponent from "@/app/cart/PriceComponent";
+// import { IReviews } from "@/types/types";
+// import PriceComponent from "@/app/cart/PriceComponent";
 import RatingComponent from "./RatingComponent";
+import TagsComponent from "./TagComponent";
+import SingleItemPriceComponent from "./SingleItemPriceComponent";
+import ReviewsComponent from "./ReviewsComponent";
 
 interface IParams {
   params: {
@@ -25,13 +28,13 @@ export default function ProductDetailPage({ params: { productId } }: IParams) {
     tags,
     reviews,
   } = data;
-
+  const isTotalRating = true;
   // todo: put back colors to fit theme
 
   return (
-    <div key={id} className="mb-28 mt-20 bg-[#def]">
-      <h1>{title}</h1>
-      <div className="w-[90%] max-w-[400px] mx-auto bg-[#edf] mb-4">
+    <div key={id} className="mb-28 mt-20">
+      <h1 className="text-thirdClr">{title}</h1>
+      <div className="w-[95%] max-w-[400px] mx-auto mb-8 p-2 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary">
         <div className="relative h-64 w-full">
           <Image
             src={imageUrl}
@@ -40,10 +43,12 @@ export default function ProductDetailPage({ params: { productId } }: IParams) {
             className="object-cover"
           />
         </div>
-        <div className="p-2 space-y-3">
-          <div>{description}</div>
+        <div className="p-2 space-y-5">
+          <div className="pb-2 border-dotted border-b border-primary dark:border-secondary">
+            {description}
+          </div>
           <SingleItemPriceComponent {...data} />
-          <RatingComponent rating={rating} />
+          <RatingComponent rating={rating} isTotalRating={isTotalRating} />
           <TagsComponent tags={tags} />
         </div>
       </div>
@@ -53,60 +58,3 @@ export default function ProductDetailPage({ params: { productId } }: IParams) {
 }
 
 // todo: generateStaticParams to prefetch all potential Ids
-
-function TagsComponent({ tags }: any) {
-  if (tags.length === 0) return <div></div>;
-  return (
-    <div>
-      {
-        <p>
-          {tags?.map((tag: string, index: number) => {
-            return <small key={index}>#{`${tag} `}</small>;
-          })}
-        </p>
-      }
-    </div>
-  );
-}
-
-function SingleItemPriceComponent({ discountedPrice, price }: IDataObject) {
-  return (
-    <div>
-      <p className="inline">Price </p>
-      {discountedPrice < price ? (
-        <>
-          <strong>
-            {discountedPrice}{" "}
-            <small className="line-through text-gray-500">{price}</small>
-          </strong>
-          <p>
-            Save: <strong>{(price - discountedPrice).toFixed(2)}</strong>
-          </p>
-        </>
-      ) : (
-        <strong>{price}</strong>
-      )}
-    </div>
-  );
-}
-
-function ReviewsComponent({ reviews }: any) {
-  if (reviews.length === 0) return <div></div>;
-  return (
-    <div className="w-[90%] max-w-[400px] mx-auto space-y-4">
-      <h3>Reviews</h3>
-      <ul>
-        {reviews.map((review: IReviews) => {
-          const { id, username, rating, description } = review;
-          return (
-            <li key={id} className="bg-[#fed]">
-              <p>{username}</p>
-              <p>{rating}</p>
-              <p>{description}</p>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
