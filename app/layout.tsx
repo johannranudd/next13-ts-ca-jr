@@ -16,14 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="relative min-h-screen">
-        <ContextProvider>
-          <ColorThemeProvider>
+      <body className="relative min-h-screen bg-primary text-secondary dark:bg-secondary dark:text-primary">
+        <ColorThemeProvider>
+          <ContextProvider>
             <Navbar />
             {children}
             <Footer />
-          </ColorThemeProvider>
-        </ContextProvider>
+          </ContextProvider>
+        </ColorThemeProvider>
       </body>
     </html>
   );

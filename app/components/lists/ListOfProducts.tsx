@@ -3,10 +3,11 @@ import { getData } from "@/app/utils/gets";
 import { IDataObject } from "@/types/types";
 import Image from "next/image";
 import BtnAddToCart from "../ui/BtnAddToCart";
-import { setItem } from "@/app/utils/storage/localstorage";
+import Link from "next/link";
 
 export default function ListOfProducts() {
   const data = use(getData());
+  console.log(data);
 
   return (
     <ul className="grid auto-grid-200">
@@ -15,12 +16,14 @@ export default function ListOfProducts() {
         return (
           <li key={id} className="p-2">
             <div className="relative h-48">
-              <Image
-                src={imageUrl}
-                alt={`image of ${title}`}
-                fill={true}
-                className="object-cover"
-              />
+              <Link href={`/products/${id}`}>
+                <Image
+                  src={imageUrl}
+                  alt={`image of ${title}`}
+                  fill={true}
+                  className="object-cover"
+                />
+              </Link>
             </div>
             <h4>{title}</h4>
             <BtnAddToCart item={item} />
