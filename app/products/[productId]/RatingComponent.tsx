@@ -1,7 +1,7 @@
 "use client";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { useRef, useEffect } from "react";
-export default function RatingComponent({ rating }: any) {
+export default function RatingComponent({ rating, isTotalRating }: any) {
   const outerContainerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -18,16 +18,23 @@ export default function RatingComponent({ rating }: any) {
 
   if (rating === 0) return <div></div>;
   return (
-    <div className="flex">
-      <p>Rating:</p>
-      <div ref={outerContainerRef} className={`relative h-6 overflow-hidden`}>
-        <div ref={containerRef} className="absolute flex text-[1.5rem]">
-          <MdOutlineStarBorder />
-          <MdOutlineStarBorder />
-          <MdOutlineStarBorder />
-          <MdOutlineStarBorder />
-          <MdOutlineStarBorder />
+    <div className="flex justify-between">
+      {isTotalRating && <p>Rating:</p>}
+
+      <div>
+        <div ref={outerContainerRef} className={`relative h-6 overflow-hidden`}>
+          <div
+            ref={containerRef}
+            className="absolute flex text-[1.5rem] text-thirdClr"
+          >
+            <MdOutlineStarBorder />
+            <MdOutlineStarBorder />
+            <MdOutlineStarBorder />
+            <MdOutlineStarBorder />
+            <MdOutlineStarBorder />
+          </div>
         </div>
+        {isTotalRating && <p className="text-center">{rating}</p>}
       </div>
     </div>
   );
