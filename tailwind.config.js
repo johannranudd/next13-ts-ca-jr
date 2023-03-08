@@ -16,7 +16,24 @@ module.exports = {
       xl: "1280px",
       "2xl": "1536px",
     },
-    extend: {},
+
+    extend: {
+      backgroundColor: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        thirdClr: "var(--thirdClr)",
+      },
+      textColor: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        thirdClr: "var(--thirdClr)",
+      },
+      borderColor: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        thirdClr: "var(--thirdClr)",
+      },
+    },
   },
   plugins: [],
 };
