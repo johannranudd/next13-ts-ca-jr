@@ -10,25 +10,12 @@ import TagsComponent from "./TagComponent";
 import SingleItemPriceComponent from "./SingleItemPriceComponent";
 import ReviewsComponent from "./ReviewsComponent";
 
-interface IParams {
-  params: {
-    productId: string;
-    searchParams: {};
-  };
-}
-
 export async function generateStaticParams() {
   const data = await getData();
-  // console.log(data);
-
   return data?.map((product: any) => ({
     productId: product.id,
   }));
 }
-
-// export default function ProductDetailPage({ params: { productId } }: IParams) {
-//   console.log(params.slug);
-//   const data: IDataObject = use(getSingleProduct(productId));
 
 export default function ProductDetailPage({
   params,
@@ -36,8 +23,6 @@ export default function ProductDetailPage({
   params: { productId: string };
 }) {
   const { productId } = params;
-  // console.log(params);
-  // return <h1 className="text-[2rem] mt-[2rem]">{params.productId}</h1>;
   const data: IDataObject = use(getSingleProduct(productId));
   const {
     id,
