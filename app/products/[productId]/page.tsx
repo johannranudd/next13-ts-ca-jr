@@ -40,7 +40,7 @@ export default function ProductDetailPage({
 
   return (
     <div key={id} className="mb-28 mt-20">
-      <h1 className="text-thirdClr">{title}</h1>
+      <h1 className="text-fourthClr dark:text-thirdClr">{title}</h1>
       <div className="w-[95%] max-w-[400px] mx-auto mb-8 p-2 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary">
         <div className="relative h-64 w-full">
           <Image

@@ -26,7 +26,7 @@ export default function TotalPriceCheckout() {
       </p>
       <Link
         href={`/`}
-        className="inline-block flex justify-center p-2 rounded-md border border-2 border-thirdClr hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
+        className="inline-block flex justify-center p-2 rounded-md border border-2 border-fourthClr dark:border-thirdClr hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
       >
         Back to home page
       </Link>

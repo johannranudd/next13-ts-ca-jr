@@ -9,7 +9,7 @@ export default function ListOfProducts() {
   const data = use(getData());
 
   return (
-    <ul className="grid auto-grid-200">
+    <ul className="max-w-screen-xl mx-auto grid auto-grid-200">
       {data?.map((item: IDataObject) => {
         const { id, title, imageUrl } = item;
         return (

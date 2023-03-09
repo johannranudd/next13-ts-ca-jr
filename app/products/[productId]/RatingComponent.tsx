@@ -1,6 +1,7 @@
 "use client";
 import { MdOutlineStarBorder } from "react-icons/md";
 import { useRef, useEffect } from "react";
+
 export default function RatingComponent({ rating, isTotalRating }: any) {
   const outerContainerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,7 +26,7 @@ export default function RatingComponent({ rating, isTotalRating }: any) {
         <div ref={outerContainerRef} className={`relative h-6 overflow-hidden`}>
           <div
             ref={containerRef}
-            className="absolute flex text-[1.5rem] text-thirdClr"
+            className="absolute flex text-[1.5rem] text-thirdClr dark:text-fourthClr"
           >
             <MdOutlineStarBorder />
             <MdOutlineStarBorder />

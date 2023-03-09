@@ -19,6 +19,7 @@
   --primary: #fff0f0;
   --secondary: #333333;
   --thirdClr: #1fb5b5;
+  --fourthClr: #db671a;
 }
 
 * {
@@ -63,5 +64,6 @@ a {
     --primary: #333333;
     --secondary: #fff0f0;
     --thirdClr: #327896;
+    --fourthClr: #db671a;
   }
 }
