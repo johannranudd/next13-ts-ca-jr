@@ -60,10 +60,4 @@ a {
   /* html {
     color-scheme: dark;
   } */
-  :root {
-    --primary: #333333;
-    --secondary: #fff0f0;
-    --thirdClr: #327896;
-    --fourthClr: #db671a;
-  }
 }
