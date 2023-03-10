@@ -1,16 +1,33 @@
-import { use } from "react";
-import { getData } from "@/app/utils/gets";
-import { IDataObject } from "@/types/types";
-import Image from "next/image";
-import BtnAddToCart from "../ui/BtnAddToCart";
+"use client";
 import Link from "next/link";
+import Image from "next/image";
+import { IDataObject } from "@/types/types";
+import BtnAddToCart from "../ui/BtnAddToCart";
+import { useEffect, useState } from "react";
+import { useGlobalContext } from "@/app/context/context";
 
-export default function ListOfProducts() {
-  const data = use(getData());
+export default function ListOfProducts({ data }: { data: IDataObject[] }) {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { searchArray }: { searchArray: IDataObject[] } = useGlobalContext();
+  const [arrayToUse, setArrayToUse] = useState(data);
+
+  useEffect(() => {
+    if (searchArray.length > 0) {
+      setArrayToUse(searchArray);
+      setIsLoading(false);
+    }
+  }, [searchArray]);
+
+  if (searchArray.length === 0)
+    return (
+      <div>
+        {isLoading ? <p>Loading...</p> : <p>No items match your search</p>}
+      </div>
+    );
 
   return (
     <ul className="max-w-screen-xl mx-auto grid auto-grid-200">
-      {data?.map((item: IDataObject) => {
+      {arrayToUse?.map((item: IDataObject) => {
         const { id, title, imageUrl } = item;
         return (
           <li key={id} className="p-2">

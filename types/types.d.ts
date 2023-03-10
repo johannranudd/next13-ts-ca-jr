@@ -16,6 +16,8 @@ export interface ContextInterface {
   dispatch: Dispatch<any>;
   menuIsOpen: boolean;
   setMenuIsOpen: Dispatch<SetStateAction<boolean>>;
+  searchArray: Array<IDataObject>;
+  setSearchArray: Dispatch<SetStateAction<[]>>;
 }
 // END context
 
