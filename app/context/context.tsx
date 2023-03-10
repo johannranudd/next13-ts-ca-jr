@@ -15,10 +15,13 @@ export const Context = createContext<ContextInterface>({
   dispatch: (): IDataObject[] => [],
   menuIsOpen: false,
   setMenuIsOpen: () => false,
+  searchArray: [],
+  setSearchArray: () => [],
 });
 
 export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+  const [searchArray, setSearchArray] = useState<IDataObject[]>([]);
   const [cartState, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -31,7 +34,14 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <Context.Provider
-      value={{ cartState, dispatch, menuIsOpen, setMenuIsOpen }}
+      value={{
+        cartState,
+        dispatch,
+        menuIsOpen,
+        setMenuIsOpen,
+        searchArray,
+        setSearchArray,
+      }}
     >
       {children}
     </Context.Provider>

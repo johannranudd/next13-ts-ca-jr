@@ -1,10 +1,14 @@
+import { IDataObject } from "@/types/types";
+
 export async function getData() {
   try {
     const res = await fetch(`https://api.noroff.dev/api/v1/online-shop`, {
       next: { revalidate: 30 },
     });
     if (res.ok) {
-      return await res.json();
+      const data = await res.json();
+
+      return data;
     } else {
       // todo: return error here
       console.error(res.status, "An error occured in getData()");
