@@ -43,4 +43,3 @@ const BtnColorMode = () => {
 };
 
 export default BtnColorMode;
-// grid place-items-center m-auto border border-2 border-purple-600 p-2 w-10 h-10

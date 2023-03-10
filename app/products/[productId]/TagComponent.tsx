@@ -3,7 +3,7 @@ export default function TagsComponent({ tags }: any) {
   return (
     <div>
       {
-        <p className="text-thirdClr">
+        <p className="text-thirdClr dark:text-fourthClr">
           {tags?.map((tag: string, index: number) => {
             return <small key={index}>#{`${tag} `}</small>;
           })}

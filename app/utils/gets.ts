@@ -1,7 +1,7 @@
 export async function getData() {
   try {
     const res = await fetch(`https://api.noroff.dev/api/v1/online-shop`, {
-      next: { revalidate: 20 },
+      next: { revalidate: 30 },
     });
     if (res.ok) {
       return await res.json();
@@ -17,7 +17,7 @@ export async function getData() {
 export async function getSingleProduct(id: string) {
   try {
     const res = await fetch(`https://api.noroff.dev/api/v1/online-shop/${id}`, {
-      next: { revalidate: 20 },
+      next: { revalidate: 30 },
     });
     if (res.ok) {
       return await res.json();
