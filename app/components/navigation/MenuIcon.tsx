@@ -12,7 +12,7 @@ export default function MenuIcon() {
   return (
     <div
       onClick={handleClick}
-      className="ml-auto cursor-pointer pr-4 space-y-1.5 md:hidden"
+      className="ml-auto cursor-pointer pr-2 space-y-1.5 md:hidden"
     >
       <div
         className={`w-8 h-[3px] duration-300 rounded-md bg-secondary dark:bg-primary ${

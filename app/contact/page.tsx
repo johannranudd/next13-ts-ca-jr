@@ -99,7 +99,7 @@ export default function ContactPage() {
       </h1>
     );
   return (
-    <div className="mt-28 mb-48 px-2">
+    <div className="mt-28 mb-48">
       <h1 className="text-fourthClr dark:text-thirdClr">Contact</h1>
       <form
         onSubmit={handleSubmit}

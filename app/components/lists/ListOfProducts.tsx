@@ -27,11 +27,11 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
   }
 
   return (
-    <ul className="max-w-screen-xl mx-auto grid auto-grid-200">
+    <ul className="max-w-screen-xl mx-auto grid auto-grid-200 gap-3">
       {arrayToUse?.map((item: IDataObject) => {
         const { id, title, imageUrl } = item;
         return (
-          <li key={id} className="p-2">
+          <li key={id} className="">
             <div className="relative h-48">
               <Link href={`/products/${id}`}>
                 <Image
