@@ -3,14 +3,12 @@ import { useState, useEffect } from "react";
 import { getData } from "@/app/utils/gets";
 import { IDataObject } from "@/types/types";
 import { useGlobalContext } from "@/app/context/context";
-// import { useRouter } from "next/navigation";
 
 export default function SearchBar() {
   const { searchArray, setSearchArray } = useGlobalContext();
   const [search, setSearch] = useState<string>("");
 
   async function handleSearch() {
-    console.log(searchArray);
     const regex = "^[a-zA-Z0-9æøåÆØÅ]+( [a-zA-Z0-9æøåÆØÅ]+)*$";
     const result = search.match(regex);
 
