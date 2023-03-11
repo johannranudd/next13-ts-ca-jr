@@ -5,7 +5,7 @@ import { IDataObject } from "@/types/types";
 import { useGlobalContext } from "@/app/context/context";
 
 export default function SearchBar() {
-  const { setSearchArray } = useGlobalContext();
+  const { searchArray, setSearchArray } = useGlobalContext();
   const [search, setSearch] = useState<string>("");
 
   async function handleSearch() {
