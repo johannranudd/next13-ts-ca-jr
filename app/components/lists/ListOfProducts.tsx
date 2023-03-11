@@ -27,11 +27,14 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
   }
 
   return (
-    <ul className="max-w-screen-xl mx-auto grid auto-grid-200 gap-3">
+    <ul className="max-w-screen-xl mx-auto grid auto-grid-200 gap-4">
       {arrayToUse?.map((item: IDataObject) => {
-        const { id, title, imageUrl } = item;
+        const { id, title, imageUrl, discountedPrice } = item;
         return (
-          <li key={id} className="">
+          <li
+            key={id}
+            className="border rounded-md overflow-hidden border border-secondary dark:border-primary shadow-xl dark:shadow-sm dark:shadow-primary"
+          >
             <div className="relative h-48">
               <Link href={`/products/${id}`}>
                 <Image
@@ -42,8 +45,15 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
                 />
               </Link>
             </div>
-            <h4>{title}</h4>
-            <BtnAddToCart item={item} />
+            <div className="flex justify-between p-2">
+              <h4 className="font-bold">{title}</h4>
+              <span className="font-bold text-fourthClr dark:text-thirdClr">
+                {discountedPrice}
+              </span>
+            </div>
+            <div className="p-2">
+              <BtnAddToCart item={item} />
+            </div>
           </li>
         );
       })}

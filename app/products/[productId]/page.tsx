@@ -36,7 +36,6 @@ export default function ProductDetailPage({
     reviews,
   } = data;
   const isTotalRating = true;
-  // todo: put back colors to fit theme
 
   return (
     <div key={id} className="mb-48 mt-20">
@@ -63,5 +62,3 @@ export default function ProductDetailPage({
     </div>
   );
 }
-
-// todo: generateStaticParams to prefetch all potential Ids
