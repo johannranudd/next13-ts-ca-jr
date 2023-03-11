@@ -18,6 +18,12 @@ module.exports = {
     },
 
     extend: {
+      colors: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        thirdClr: "var(--thirdClr)",
+        fourthClr: "var(--fourthClr)",
+      },
       backgroundColor: {
         primary: "var(--primary)",
         secondary: "var(--secondary)",

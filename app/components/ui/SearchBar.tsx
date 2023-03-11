@@ -5,7 +5,7 @@ import { IDataObject } from "@/types/types";
 import { useGlobalContext } from "@/app/context/context";
 
 export default function SearchBar() {
-  const { searchArray, setSearchArray } = useGlobalContext();
+  const { setSearchArray } = useGlobalContext();
   const [search, setSearch] = useState<string>("");
 
   async function handleSearch() {
@@ -38,7 +38,7 @@ export default function SearchBar() {
         type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="border border-secondary rounded-md outline-none"
+        className="p-2 w-full max-w-[400px] border rounded-md border-secondary dark:border-primary focus:outline outline-fourthClr dark:outline-thirdClr"
         placeholder="Search product title"
       />
     </div>

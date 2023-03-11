@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 interface IFormData {
   fullName: string;
@@ -9,6 +9,8 @@ interface IFormData {
 }
 
 export default function ContactPage() {
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const [hasBeenSubmitted, setHasBeenSubmitted] = useState<boolean>(false);
   const [formData, setFormData] = useState<IFormData>({
     fullName: "",
     subject: "",
@@ -28,10 +30,15 @@ export default function ContactPage() {
   ) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    if (textAreaRef.current) {
+      textAreaRef.current.style.height = "auto";
+      textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
+    }
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setHasBeenSubmitted(false);
     const errors = handleValidation(formData);
     const allErrorsAreEmpty = Object.values(errors).every((value: string) => {
       if (value === "") {
@@ -39,7 +46,11 @@ export default function ContactPage() {
       }
     });
     if (allErrorsAreEmpty) {
-      console.log(formData);
+      console.log("Your Form Data: ", formData);
+      setHasBeenSubmitted(true);
+      setTimeout(() => {
+        setHasBeenSubmitted(false);
+      }, 3000);
       setFormErrors({
         fullName: "",
         subject: "",
@@ -81,10 +92,20 @@ export default function ContactPage() {
     return errors;
   }
 
+  if (hasBeenSubmitted)
+    return (
+      <h1 className="absolute top-1/3 left-1/2 -translate-x-1/2">
+        Thank you for your message! <br /> Check the console
+      </h1>
+    );
   return (
-    <div className="mt-20 px-2">
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <div>
+    <div className="mt-28 mb-48">
+      <h1 className="text-fourthClr dark:text-thirdClr">Contact</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="w-[95%] max-w-[400px] mx-auto p-4 space-y-3 rounded-md border border-secondary dark:border-primary shadow-xl dark:shadow-md dark:shadow-primary"
+      >
+        <div className="flex flex-col">
           <label htmlFor="fullName">Full Name</label>
           <input
             type="text"
@@ -92,14 +113,16 @@ export default function ContactPage() {
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
-            className={`border border-secondary dark:border-primary ${
-              formErrors.fullName && "border-red-500 dark:border-red-500"
+            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+              formErrors.fullName
+                ? "border-red-500 dark:border-red-500"
+                : "border border-secondary dark:border-primary"
             }`}
             required
           />
           {formErrors.fullName && <p>{formErrors.fullName}</p>}
         </div>
-        <div>
+        <div className="flex flex-col">
           <label htmlFor="subject">Subject</label>
           <input
             type="text"
@@ -107,14 +130,16 @@ export default function ContactPage() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className={`border border-secondary dark:border-primary ${
-              formErrors.subject && "border-red-500 dark:border-red-500"
+            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+              formErrors.subject
+                ? "border-red-500 dark:border-red-500"
+                : "border border-secondary dark:border-primary"
             }`}
             required
           />
           {formErrors.subject && <p>{formErrors.subject}</p>}
         </div>
-        <div>
+        <div className="flex flex-col">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -122,28 +147,40 @@ export default function ContactPage() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`border border-secondary dark:border-primary ${
-              formErrors.email && "border-red-500 dark:border-red-500"
+            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+              formErrors.email
+                ? "border-red-500 dark:border-red-500"
+                : "border border-secondary dark:border-primary"
             }`}
             required
           />
           {formErrors.email && <p>{formErrors.email}</p>}
         </div>
-        <div>
+        <div className="flex flex-col">
           <label htmlFor="body">Body</label>
           <textarea
             id="body"
             name="body"
             value={formData.body}
             onChange={handleChange}
-            className={`border border-secondary dark:border-primary ${
-              formErrors.body && "border-red-500 dark:border-red-500"
+            ref={textAreaRef}
+            // rows={4}
+            // onResize={true}
+            className={`min-h-[150px] p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+              formErrors.body
+                ? "border-red-500 dark:border-red-500"
+                : "border border-secondary dark:border-primary"
             }`}
             required
           />
           {formErrors.body && <p>{formErrors.body}</p>}
         </div>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          className="w-full flex justify-center p-2 rounded-md border border-2 border-fourthClr dark:border-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
