@@ -33,7 +33,7 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
         return (
           <li
             key={id}
-            className="border rounded-md overflow-hidden border border-secondary dark:border-primary shadow-xl dark:shadow-sm dark:shadow-primary"
+            className="flex flex-col justify-between border rounded-md overflow-hidden bg-secondary text-primary dark:bg-primary dark:text-secondary border border-secondary dark:border-primary shadow-xl dark:shadow-sm dark:shadow-primary"
           >
             <div className="relative h-48">
               <Link href={`/products/${id}`}>
@@ -43,15 +43,18 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
                   fill={true}
                   className="object-cover"
                 />
+                <div className="absolute opacity-0 hover:opacity-70 bg-black w-full h-full flex justify-center items-center duration-300">
+                  <p className="text-primary">View Porduct</p>
+                </div>
               </Link>
             </div>
             <div className="flex justify-between p-2">
               <h4 className="font-bold">{title}</h4>
-              <span className="font-bold text-fourthClr dark:text-thirdClr">
+              <span className="font-bold text-fourthClr dark:text-thirdClrDark">
                 {discountedPrice}
               </span>
             </div>
-            <div className="p-2">
+            <div className="py-4 px-2">
               <BtnAddToCart item={item} />
             </div>
           </li>

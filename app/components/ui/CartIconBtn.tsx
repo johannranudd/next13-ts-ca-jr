@@ -1,13 +1,10 @@
 "use client";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useGlobalContext } from "@/app/context/context";
-// import { getCart } from "@/app/utils/storage/localstorage";
 import Link from "next/link";
-import { IDataObject } from "@/types/types";
 
 export default function CartIconBtn() {
   const { cartState } = useGlobalContext();
-  // const cart: Array<IDataObject> = getCart();
 
   return (
     <Link href={`/cart`} className="relative">
