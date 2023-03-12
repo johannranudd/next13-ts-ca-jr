@@ -10,12 +10,12 @@ export default function PriceComponent({
     ? Number((discountedPrice * amountInCart).toFixed(2))
     : 0;
   return (
-    <div className="flex flex-col sm:items-end space-y-2">
+    <div className="flex flex-col space-y-2 w-[70%] max-w-[200px] sm:w-1/2 sm:max-w-full">
       <h4>
         <strong>{title}</strong>
       </h4>
-      <p>
-        Price:{" "}
+      <p className="flex justify-between">
+        <span>Price: </span>
         <strong>
           {discountedPrice}{" "}
           {discountedPrice < price && (
@@ -23,10 +23,10 @@ export default function PriceComponent({
           )}
         </strong>
       </p>
-      <p>
+      <p className="flex justify-between">
         In cart: <strong>{amountInCart}</strong>
       </p>
-      <p>
+      <p className="flex justify-between">
         Total: <strong>{totalPriceSingleItem}</strong>
       </p>
     </div>
