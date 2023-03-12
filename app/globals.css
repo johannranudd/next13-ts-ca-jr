@@ -33,7 +33,7 @@
     width: 110px;
     padding: 0.1rem 0rem;
     font-size: 0.5rem;
-    content: url("../images/icons8-shopping-cart-24.png");
+    content: url("../images/cart-24.png");
     transition: 0.3s;
     transform: translateY(-50%) rotateX(90deg);
     background-color: var(--fourthClr);
@@ -115,13 +115,14 @@ a {
   /* html {
     color-scheme: dark;
   } */
+  .dark .btn-add-to-cart::after {
+    background-color: var(--thirdClrDark);
+    content: url("../images/cart-24-white.png");
+    /* color: var(--thirdClr); */
+  }
   .dark .btn-add-to-cart::before {
     background-color: var(--secondary);
     color: var(--primary);
     border: 2px solid var(--thirdClrDark);
-  }
-  .dark .btn-add-to-cart::after {
-    background-color: var(--thirdClrDark);
-    /* color: var(--thirdClr); */
   }
 }
