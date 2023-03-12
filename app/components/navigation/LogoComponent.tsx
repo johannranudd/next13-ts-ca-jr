@@ -9,11 +9,12 @@ export default function LogoComponent({ className }: any) {
   const currentTheme = theme === "system" ? systemTheme : theme;
   return (
     <Link href={"/"} className={className}>
-      <Image
+      <Image src={LogoImageBlue} alt="logo" width={80} />
+      {/* <Image
         src={currentTheme === "light" ? LogoImageOrange : LogoImageBlue}
         alt="logo"
         width={80}
-      />
+      /> */}
     </Link>
   );
 }

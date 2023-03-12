@@ -100,10 +100,10 @@ export default function ContactPage() {
     );
   return (
     <div className="mt-28 mb-48">
-      <h1 className="text-fourthClr dark:text-thirdClr">Contact</h1>
+      <h1>Contact</h1>
       <form
         onSubmit={handleSubmit}
-        className="w-[95%] max-w-[400px] mx-auto p-4 space-y-3 rounded-md border border-secondary dark:border-primary shadow-xl dark:shadow-md dark:shadow-primary"
+        className="w-[95%] max-w-[400px] mx-auto p-4 space-y-3 rounded-md border border-secondary dark:border-primary shadow-xl"
       >
         <div className="flex flex-col">
           <label htmlFor="fullName">Full Name</label>
@@ -113,7 +113,7 @@ export default function ContactPage() {
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
-            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+            className={`p-2 border rounded-md focus:outline outline-thirdClrDark dark:outline-thirdClr shadow-xl ${
               formErrors.fullName
                 ? "border-red-500 dark:border-red-500"
                 : "border border-secondary dark:border-primary"
@@ -130,7 +130,7 @@ export default function ContactPage() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+            className={`p-2 border rounded-md focus:outline outline-thirdClrDark dark:outline-thirdClr shadow-xl ${
               formErrors.subject
                 ? "border-red-500 dark:border-red-500"
                 : "border border-secondary dark:border-primary"
@@ -147,7 +147,7 @@ export default function ContactPage() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+            className={`p-2 border rounded-md focus:outline outline-thirdClrDark dark:outline-thirdClr shadow-xl ${
               formErrors.email
                 ? "border-red-500 dark:border-red-500"
                 : "border border-secondary dark:border-primary"
@@ -164,9 +164,7 @@ export default function ContactPage() {
             value={formData.body}
             onChange={handleChange}
             ref={textAreaRef}
-            // rows={4}
-            // onResize={true}
-            className={`min-h-[150px] p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+            className={`min-h-[150px] p-2 border rounded-md focus:outline outline-thirdClrDark dark:outline-thirdClr shadow-xl ${
               formErrors.body
                 ? "border-red-500 dark:border-red-500"
                 : "border border-secondary dark:border-primary"
@@ -177,7 +175,7 @@ export default function ContactPage() {
         </div>
         <button
           type="submit"
-          className="w-full flex justify-center p-2 rounded-md border border-2 border-fourthClr dark:border-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
+          className="w-full flex justify-center p-2 rounded-md border border-2 border-thirdClrDark dark:border-thirdClr shadow-xl hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
         >
           Submit
         </button>

@@ -56,7 +56,7 @@ export default function CartList() {
                     onClick={() =>
                       dispatch({ type: "INCREMENT", payload: product })
                     }
-                    className="text-xl hover:scale-150 active:scale-100 duration-100 text-fourthClr dark:text-thirdClr"
+                    className="text-xl hover:scale-150 active:scale-100 duration-100 text-thirdClrDark dark:text-thirdClr"
                   >
                     <BsChevronUp />
                   </button>
@@ -64,7 +64,7 @@ export default function CartList() {
                     onClick={() =>
                       dispatch({ type: "DECREMENT", payload: product })
                     }
-                    className="text-xl hover:scale-150 active:scale-100 duration-100 text-fourthClr dark:text-thirdClr"
+                    className="text-xl hover:scale-150 active:scale-100 duration-100 text-thirdClrDark dark:text-thirdClr"
                   >
                     <BsChevronDown />
                   </button>

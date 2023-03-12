@@ -50,7 +50,7 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
             </div>
             <div className="flex justify-between p-2">
               <h4 className="font-bold">{title}</h4>
-              <span className="font-bold text-fourthClr dark:text-thirdClrDark">
+              <span className="font-bold text-thirdClr dark:text-thirdClrDark">
                 {discountedPrice}
               </span>
             </div>

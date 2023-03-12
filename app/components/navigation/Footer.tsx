@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="absolute bottom-0 left-0 right-0 p-4 rounded-t-md border-t border-secondary dark:border-primary">
       <div className="max-w-screen-xl mx-auto grid justify-items-center items-center md:grid-cols-3">
-        <p className="hover:text-fourthClr hover:dark:text-thirdClr md:justify-self-start">
+        <p className="hover:text-thirdClrDark hover:dark:text-thirdClr md:justify-self-start">
           <a href="mailto:example@example.com">example@example.com</a>
         </p>
         <LogoComponent className="ml-4 md:justify-self-center" />
@@ -17,7 +17,7 @@ export default function Footer() {
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-fourthClr hover:dark:text-thirdClr"
+            className="hover:text-thirdClrDark hover:dark:text-thirdClr"
           >
             <TiSocialTwitter />
           </a>
@@ -25,7 +25,7 @@ export default function Footer() {
             href="https://www.linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-fourthClr hover:dark:text-thirdClr"
+            className="hover:text-thirdClrDark hover:dark:text-thirdClr"
           >
             <TiSocialFacebookCircular />
           </a>
@@ -33,7 +33,7 @@ export default function Footer() {
             href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-fourthClr hover:dark:text-thirdClr"
+            className="hover:text-thirdClrDark hover:dark:text-thirdClr"
           >
             <TiSocialLinkedin />
           </a>

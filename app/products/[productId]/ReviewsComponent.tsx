@@ -14,7 +14,7 @@ export default function ReviewsComponent({ reviews }: any) {
               key={id}
               className="p-2 space-y-3 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary"
             >
-              <div className="flex justify-between pb-2 border-dotted border-b border-thirdClr dark:border-fourthClr">
+              <div className="flex justify-between pb-2 border-dotted border-b border-thirdClr dark:border-thirdClrDark">
                 <h4>
                   <strong>{username}</strong>
                 </h4>

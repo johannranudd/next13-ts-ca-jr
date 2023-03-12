@@ -48,7 +48,7 @@ export default function ProductDetailPage({
           />
         </div>
         <div className="p-2 space-y-5">
-          <div className="pb-2 border-dotted border-b border-thirdClr dark:border-fourthClr">
+          <div className="pb-2 border-dotted border-b border-thirdClr dark:border-thirdClrDark">
             {description}
           </div>
           <SingleItemPriceComponent {...data} />

@@ -19,7 +19,9 @@ export default function PriceComponent({
         <strong>
           {discountedPrice}{" "}
           {discountedPrice < price && (
-            <small className="line-through text-gray-500">{price} </small>
+            <small className="line-through text-gray-500 dark:text-gray-400">
+              {price}{" "}
+            </small>
           )}
         </strong>
       </p>
