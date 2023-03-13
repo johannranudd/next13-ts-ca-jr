@@ -16,7 +16,7 @@ export default function ModalComponent({ title, imageUrl }: any) {
         </p>
         {modalIsOpen && (
           <div className="bg-[#000000cc] w-screen h-screen fixed top-0 left-0">
-            <div className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 h-full w-full max-w-[90%] max-h-[80%]">
+            <div className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 h-[80%] w-[95%] max-w-[700px]">
               <Image
                 src={imageUrl}
                 alt={`image of ${title}`}

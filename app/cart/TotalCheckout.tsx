@@ -26,7 +26,7 @@ export default function TotalCheckout() {
   if (cartState.products.length === 0) return <div></div>;
 
   return (
-    <div className="py-4 w-[95%] mx-auto max-w-[400px] sm:max-w-[300px]">
+    <div className="py-4 w-[95%] mx-auto max-w-[280px] sm:max-w-[300px]">
       <form onSubmit={handleSubmit} className="space-y-2">
         <div className="flex justify-between mb-6">
           <p>Total Price:&nbsp; </p>

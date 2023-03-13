@@ -24,7 +24,7 @@ export default function CartList() {
         <h1>No items in cart</h1>
         <Link
           href={`/`}
-          className="p-2 rounded-md border border-2 border-thirdClr hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
+          className="p-2 rounded-md border border-2 border-thirdClrDark dark:border-thirdClr hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
         >
           Back to home page
         </Link>
@@ -35,14 +35,14 @@ export default function CartList() {
   return (
     <>
       <h1>Cart</h1>
-      <ul className="py-4 mb-16 w-[95%] mx-auto max-w-[400px] sm:max-w-[650px]">
+      <ul className="w-[95%] max-w-[280px] mx-auto sm:max-w-[650px]">
         {uniqueCart?.map((product: IDataObject) => {
           const { id, title, price, discountedPrice, imageUrl, amountInCart } =
             product;
 
           return (
-            <li key={id} className="py-4 sm:flex">
-              <div className="relative w-full h-48 sm:w-64 shadow-#5">
+            <li key={id} className="py-6 sm:flex">
+              <div className="relative w-full h-48 mb-3 sm:m-0 sm:w-64 shadow-#5">
                 <Link href={`/products/${id}`}>
                   <Image
                     src={imageUrl}
@@ -80,6 +80,14 @@ export default function CartList() {
           );
         })}
       </ul>
+      <div className="my-8 w-[95%] max-w-[280px] mx-auto flex justify-center sm:max-w-[300px]">
+        <button
+          onClick={() => dispatch({ type: "CLEAR_CART" })}
+          className="p-2 w-full rounded-md border border-2 border-red-300 hover:bg-red-300 hover:text-primary"
+        >
+          Clear cart
+        </button>
+      </div>
     </>
   );
 }

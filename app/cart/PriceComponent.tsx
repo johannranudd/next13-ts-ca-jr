@@ -19,10 +19,10 @@ export default function PriceComponent({
         <strong>
           {discountedPrice < price && (
             <small className="line-through text-gray-500 dark:text-gray-400">
-              {price}{" "}
+              {price}
             </small>
-          )}
-          {discountedPrice}{" "}
+          )}{" "}
+          {discountedPrice}
         </strong>
       </p>
       <p className="flex justify-between">
