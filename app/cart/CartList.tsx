@@ -41,14 +41,19 @@ export default function CartList() {
             product;
 
           return (
-            <li key={id} className="py-4 sm:flex ">
-              <div className="relative w-full h-48 sm:w-64">
-                <Image
-                  src={imageUrl}
-                  alt={`image of ${title}`}
-                  fill={true}
-                  className="object-cover"
-                />
+            <li key={id} className="py-4 sm:flex">
+              <div className="relative w-full h-48 sm:w-64 shadow-#5">
+                <Link href={`/products/${id}`}>
+                  <Image
+                    src={imageUrl}
+                    alt={`image of ${title}`}
+                    fill={true}
+                    className="object-cover"
+                  />
+                  <div className="absolute opacity-0 hover:opacity-70 bg-black w-full h-full flex justify-center items-center duration-300">
+                    <p className="text-primary">View Porduct</p>
+                  </div>
+                </Link>
               </div>
               <div className="flex flex-row-reverse justify-between sm:w-full sm:flex-row sm:items-end">
                 <div className="flex flex-col justify-between sm:space-y-20 sm:ml-[29%]">

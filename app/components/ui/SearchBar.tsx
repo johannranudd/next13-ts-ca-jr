@@ -38,7 +38,7 @@ export default function SearchBar() {
         type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="p-2 w-full max-w-[400px] border rounded-md border-secondary dark:border-primary focus:outline outline-fourthClr dark:outline-thirdClr"
+        className="p-2 w-full max-w-[400px] border rounded-md border-secondary dark:border-primary focus:outline outline-thirdClr"
         placeholder="Search product title"
       />
     </div>

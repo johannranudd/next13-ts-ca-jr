@@ -12,7 +12,7 @@ export default function ReviewsComponent({ reviews }: any) {
           return (
             <li
               key={id}
-              className="p-2 space-y-3 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary"
+              className="p-2 space-y-3 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary shadow-#5 dark:shadow-#5-white"
             >
               <div className="flex justify-between pb-2 border-dotted border-b border-thirdClr dark:border-thirdClrDark">
                 <h4>

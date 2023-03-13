@@ -27,13 +27,13 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
   }
 
   return (
-    <ul className="max-w-screen-xl mx-auto grid auto-grid-200 gap-4">
+    <ul className="max-w-screen-xl mx-auto grid auto-grid-200 gap-6">
       {arrayToUse?.map((item: IDataObject) => {
         const { id, title, imageUrl, discountedPrice } = item;
         return (
           <li
             key={id}
-            className="flex flex-col justify-between border rounded-md overflow-hidden bg-secondary text-primary dark:bg-primary dark:text-secondary border border-secondary dark:border-primary shadow-xl dark:shadow-sm dark:shadow-primary"
+            className="flex flex-col justify-between border rounded-md overflow-hidden bg-secondary text-primary shadow-#5 dark:bg-primary dark:text-secondary border border-secondary dark:border-primary"
           >
             <div className="relative h-48">
               <Link href={`/products/${id}`}>

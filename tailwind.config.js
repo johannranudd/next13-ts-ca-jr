@@ -26,6 +26,10 @@ module.exports = {
         fourthClr: "var(--fourthClr)",
         fourthClrDark: "var(--fourthClrDark)",
       },
+      boxShadow: {
+        "#5": "rgba(0, 0, 0, 0.7) 0px 3px 8px",
+        // "#5-white": "rgba(255, 255, 255, 0.3) 0px 3px 8px",
+      },
     },
   },
   plugins: [],

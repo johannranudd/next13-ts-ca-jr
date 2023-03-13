@@ -7,6 +7,7 @@ import RatingComponent from "./RatingComponent";
 import TagsComponent from "./TagComponent";
 import SingleItemPriceComponent from "./SingleItemPriceComponent";
 import ReviewsComponent from "./ReviewsComponent";
+import ModalComponent from "./ModalComponent";
 
 export async function generateStaticParams() {
   const data = await getData();
@@ -38,8 +39,9 @@ export default function ProductDetailPage({
   return (
     <div key={id} className="mb-48 mt-20">
       <h1>{title}</h1>
-      <div className="w-[95%] max-w-[400px] mx-auto mb-8 p-2 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary">
+      <div className="w-[95%] max-w-[400px] mx-auto mb-8 p-2 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary shadow-#5">
         <div className="relative h-64 w-full">
+          <ModalComponent {...data} />
           <Image
             src={imageUrl}
             alt={`image of ${title}`}

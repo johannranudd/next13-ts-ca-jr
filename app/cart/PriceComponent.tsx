@@ -17,12 +17,12 @@ export default function PriceComponent({
       <p className="flex justify-between">
         <span>Price: </span>
         <strong>
-          {discountedPrice}{" "}
           {discountedPrice < price && (
             <small className="line-through text-gray-500 dark:text-gray-400">
               {price}{" "}
             </small>
           )}
+          {discountedPrice}{" "}
         </strong>
       </p>
       <p className="flex justify-between">
