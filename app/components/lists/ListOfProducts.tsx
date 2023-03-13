@@ -5,6 +5,7 @@ import { IDataObject } from "@/types/types";
 import BtnAddToCart from "../ui/BtnAddToCart";
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "@/app/context/context";
+import LoadingWidget from "../widgets/LoadingWidget";
 
 export default function ListOfProducts({ data }: { data: IDataObject[] }) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -20,20 +21,20 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
 
   if (searchArray.length === 0) {
     return (
-      <div>
-        {isLoading ? <p>Loading...</p> : <p>No items match your search</p>}
+      <div className="flex justify-center">
+        {isLoading ? <LoadingWidget /> : <p>No items match your search</p>}
       </div>
     );
   }
 
   return (
-    <ul className="max-w-screen-xl mx-auto grid auto-grid-200 gap-4">
+    <ul className="max-w-screen-xl mx-auto grid auto-grid-200 gap-6">
       {arrayToUse?.map((item: IDataObject) => {
         const { id, title, imageUrl, discountedPrice } = item;
         return (
           <li
             key={id}
-            className="flex flex-col justify-between border rounded-md overflow-hidden bg-secondary text-primary dark:bg-primary dark:text-secondary border border-secondary dark:border-primary shadow-xl dark:shadow-sm dark:shadow-primary"
+            className="flex flex-col justify-between border rounded-md overflow-hidden bg-secondary text-primary shadow-#5 dark:bg-primary dark:text-secondary border border-secondary dark:border-primary"
           >
             <div className="relative h-48">
               <Link href={`/products/${id}`}>
@@ -50,7 +51,7 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
             </div>
             <div className="flex justify-between p-2">
               <h4 className="font-bold">{title}</h4>
-              <span className="font-bold text-fourthClr dark:text-thirdClrDark">
+              <span className="font-bold text-thirdClr dark:text-thirdClrDark">
                 {discountedPrice}
               </span>
             </div>

@@ -100,10 +100,11 @@ export default function ContactPage() {
     );
   return (
     <div className="mt-28 mb-48">
-      <h1 className="text-fourthClr dark:text-thirdClr">Contact</h1>
+      <h1>Contact</h1>
       <form
         onSubmit={handleSubmit}
-        className="w-[95%] max-w-[400px] mx-auto p-4 space-y-3 rounded-md border border-secondary dark:border-primary shadow-xl dark:shadow-md dark:shadow-primary"
+        className="w-[95%] max-w-[400px] mx-auto p-4 space-y-3 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary shadow-#3"
+        // className="w-[95%] max-w-[400px] mx-auto p-4 space-y-3 rounded-md border border-secondary dark:border-primary shadow-#3"
       >
         <div className="flex flex-col">
           <label htmlFor="fullName">Full Name</label>
@@ -113,14 +114,16 @@ export default function ContactPage() {
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
-            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+            className={`p-2 border rounded-md text-secondary bg-gray-100 focus:outline outline-thirdClrDark dark:outline-thirdClr shadow-lg ${
               formErrors.fullName
                 ? "border-red-500 dark:border-red-500"
-                : "border border-secondary dark:border-primary"
+                : "border-primary dark:border-secondary"
             }`}
             required
           />
-          {formErrors.fullName && <p>{formErrors.fullName}</p>}
+          {formErrors.fullName && (
+            <p className="text-red-500">{formErrors.fullName}</p>
+          )}
         </div>
         <div className="flex flex-col">
           <label htmlFor="subject">Subject</label>
@@ -130,14 +133,16 @@ export default function ContactPage() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+            className={`p-2 border rounded-md text-secondary bg-gray-100 focus:outline outline-thirdClrDark dark:outline-thirdClr shadow-lg ${
               formErrors.subject
                 ? "border-red-500 dark:border-red-500"
-                : "border border-secondary dark:border-primary"
+                : "border-primary dark:border-secondary"
             }`}
             required
           />
-          {formErrors.subject && <p>{formErrors.subject}</p>}
+          {formErrors.subject && (
+            <p className="text-red-500">{formErrors.subject}</p>
+          )}
         </div>
         <div className="flex flex-col">
           <label htmlFor="email">Email</label>
@@ -147,14 +152,16 @@ export default function ContactPage() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+            className={`p-2 border rounded-md text-secondary bg-gray-100 focus:outline outline-thirdClrDark dark:outline-thirdClr shadow-lg ${
               formErrors.email
                 ? "border-red-500 dark:border-red-500"
-                : "border border-secondary dark:border-primary"
+                : "border-primary dark:border-secondary"
             }`}
             required
           />
-          {formErrors.email && <p>{formErrors.email}</p>}
+          {formErrors.email && (
+            <p className="text-red-500">{formErrors.email}</p>
+          )}
         </div>
         <div className="flex flex-col">
           <label htmlFor="body">Body</label>
@@ -164,20 +171,18 @@ export default function ContactPage() {
             value={formData.body}
             onChange={handleChange}
             ref={textAreaRef}
-            // rows={4}
-            // onResize={true}
-            className={`min-h-[150px] p-2 border rounded-md focus:outline outline-fourthClr dark:outline-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary ${
+            className={`min-h-[150px] p-2 border rounded-md text-secondary bg-gray-100 focus:outline outline-thirdClrDark dark:outline-thirdClr shadow-lg ${
               formErrors.body
                 ? "border-red-500 dark:border-red-500"
-                : "border border-secondary dark:border-primary"
+                : "border-primary dark:border-secondary"
             }`}
             required
           />
-          {formErrors.body && <p>{formErrors.body}</p>}
+          {formErrors.body && <p className="text-red-500">{formErrors.body}</p>}
         </div>
         <button
           type="submit"
-          className="w-full flex justify-center p-2 rounded-md border border-2 border-fourthClr dark:border-thirdClr shadow-xl dark:shadow-sm dark:shadow-primary hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
+          className="w-full flex justify-center p-2 rounded-md shadow-lg border border-2 border-thirdClr dark:border-thirdClrDark hover:bg-primary hover:text-secondary dark:hover:bg-secondary dark:hover:text-primary duration-300"
         >
           Submit
         </button>

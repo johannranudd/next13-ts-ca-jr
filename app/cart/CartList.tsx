@@ -24,7 +24,7 @@ export default function CartList() {
         <h1>No items in cart</h1>
         <Link
           href={`/`}
-          className="p-2 rounded-md border border-2 border-thirdClr hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
+          className="p-2 rounded-md border border-2 border-thirdClrDark dark:border-thirdClr hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"
         >
           Back to home page
         </Link>
@@ -35,20 +35,25 @@ export default function CartList() {
   return (
     <>
       <h1>Cart</h1>
-      <ul className="py-4 mb-16 w-[95%] mx-auto max-w-[400px] sm:max-w-[650px]">
+      <ul className="w-[95%] max-w-[280px] mx-auto sm:max-w-[650px]">
         {uniqueCart?.map((product: IDataObject) => {
           const { id, title, price, discountedPrice, imageUrl, amountInCart } =
             product;
 
           return (
-            <li key={id} className="py-4 sm:flex ">
-              <div className="relative w-full h-48 sm:w-64">
-                <Image
-                  src={imageUrl}
-                  alt={`image of ${title}`}
-                  fill={true}
-                  className="object-cover"
-                />
+            <li key={id} className="py-6 sm:flex">
+              <div className="relative w-full h-48 mb-3 sm:m-0 sm:w-64 shadow-#5">
+                <Link href={`/products/${id}`}>
+                  <Image
+                    src={imageUrl}
+                    alt={`image of ${title}`}
+                    fill={true}
+                    className="object-cover"
+                  />
+                  <div className="absolute opacity-0 hover:opacity-70 bg-black w-full h-full flex justify-center items-center duration-300">
+                    <p className="text-primary">View Porduct</p>
+                  </div>
+                </Link>
               </div>
               <div className="flex flex-row-reverse justify-between sm:w-full sm:flex-row sm:items-end">
                 <div className="flex flex-col justify-between sm:space-y-20 sm:ml-[29%]">
@@ -56,7 +61,7 @@ export default function CartList() {
                     onClick={() =>
                       dispatch({ type: "INCREMENT", payload: product })
                     }
-                    className="text-xl hover:scale-150 active:scale-100 duration-100 text-fourthClr dark:text-thirdClr"
+                    className="text-xl hover:scale-150 active:scale-100 duration-100 text-thirdClrDark dark:text-thirdClr"
                   >
                     <BsChevronUp />
                   </button>
@@ -64,7 +69,7 @@ export default function CartList() {
                     onClick={() =>
                       dispatch({ type: "DECREMENT", payload: product })
                     }
-                    className="text-xl hover:scale-150 active:scale-100 duration-100 text-fourthClr dark:text-thirdClr"
+                    className="text-xl hover:scale-150 active:scale-100 duration-100 text-thirdClrDark dark:text-thirdClr"
                   >
                     <BsChevronDown />
                   </button>
@@ -75,6 +80,14 @@ export default function CartList() {
           );
         })}
       </ul>
+      <div className="my-8 w-[95%] max-w-[280px] mx-auto flex justify-center sm:max-w-[300px]">
+        <button
+          onClick={() => dispatch({ type: "CLEAR_CART" })}
+          className="p-2 w-full rounded-md border border-2 border-red-300 hover:bg-red-300 hover:text-primary"
+        >
+          Clear cart
+        </button>
+      </div>
     </>
   );
 }

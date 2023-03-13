@@ -21,6 +21,11 @@
   .btn-add-to-cart:hover::after {
     transform: translateY(0) rotateX(0);
   }
+  .btn-add-to-cart:active::after {
+    scale: 0.95;
+    transform-origin: center;
+    transition: 0.05s;
+  }
   .btn-add-to-cart:hover::before {
     transform: translateY(50%) rotateX(90deg);
   }
@@ -36,8 +41,7 @@
     content: url("../images/cart-24.png");
     transition: 0.3s;
     transform: translateY(-50%) rotateX(90deg);
-    background-color: var(--fourthClr);
-    /* border: 2px solid var(--fourthClr); */
+    background-color: var(--thirdClr);
   }
   .btn-add-to-cart::before {
     position: absolute;
@@ -50,32 +54,46 @@
     transition: 0.3s;
     transform: translateY(0) rotateX(0);
     background-color: var(--primary);
-    border: 2px solid var(--fourthClr);
+    border: 2px solid var(--thirdClr);
     color: var(--secondary);
+  }
+
+  /* *spinner */
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+  }
+  .spinner:after {
+    content: " ";
+    display: block;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 6px solid var(--secondary);
+    border-color: var(--secondary) transparent var(--secondary) transparent;
+    animation: spinner 1.2s linear infinite;
+  }
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }
 
-/** original root */
-/* :root {
-  --primary: #fff0f0;
-  --secondary: #333333;
-  --thirdClr: #1fb5b5;
-  --fourthClr: #db671a;
-} */
-/** original root */
-
-/* new root */
 :root {
-  --primary: #fff8f8;
-  /* --primary: #fcf3f3; */
-  --secondary: #333333;
-  /* --thirdClr: #007d7d; */
+  --primary: #fbf5f5;
+  --secondary: #242431;
   --thirdClr: #1fb5b5;
   --thirdClrDark: #006161;
-  --fourthClr: #f0853d;
-  --fourthClrDark: #a9561f;
 }
-/* new root */
 
 * {
   box-sizing: border-box;
@@ -107,7 +125,6 @@ button {
 }
 
 a {
-  /* color: inherit; */
   text-decoration: none;
 }
 
@@ -118,7 +135,6 @@ a {
   .dark .btn-add-to-cart::after {
     background-color: var(--thirdClrDark);
     content: url("../images/cart-24-white.png");
-    /* color: var(--thirdClr); */
   }
   .dark .btn-add-to-cart::before {
     background-color: var(--secondary);

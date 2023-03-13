@@ -17,7 +17,7 @@ export default function RatingComponent({ rating, isTotalRating }: any) {
     }
   }, [containerRef, outerContainerRef]);
 
-  if (rating === 0) return <div></div>;
+  if (rating === 0) return null;
   return (
     <div className="flex justify-between">
       {isTotalRating && <p>Rating:</p>}
@@ -26,7 +26,7 @@ export default function RatingComponent({ rating, isTotalRating }: any) {
         <div ref={outerContainerRef} className={`relative h-6 overflow-hidden`}>
           <div
             ref={containerRef}
-            className="absolute flex text-[1.5rem] text-thirdClr dark:text-fourthClr"
+            className="absolute flex text-[1.5rem] text-thirdClr dark:text-thirdClrDark"
           >
             <MdOutlineStarBorder />
             <MdOutlineStarBorder />
