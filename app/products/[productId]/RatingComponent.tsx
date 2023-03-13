@@ -17,7 +17,7 @@ export default function RatingComponent({ rating, isTotalRating }: any) {
     }
   }, [containerRef, outerContainerRef]);
 
-  if (rating === 0) return <div></div>;
+  if (rating === 0) return null;
   return (
     <div className="flex justify-between">
       {isTotalRating && <p>Rating:</p>}

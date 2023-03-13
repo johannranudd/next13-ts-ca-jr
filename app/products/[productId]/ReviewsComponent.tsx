@@ -2,7 +2,7 @@ import { IReviews } from "@/types/types";
 import RatingComponent from "./RatingComponent";
 
 export default function ReviewsComponent({ reviews }: any) {
-  if (reviews.length === 0) return <div></div>;
+  if (reviews.length === 0) return null;
   return (
     <div className="w-[95%] max-w-[400px] mx-auto space-y-4">
       <h3 className="text-center text-xl underline">Reviews</h3>

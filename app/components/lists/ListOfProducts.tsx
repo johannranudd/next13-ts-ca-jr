@@ -5,6 +5,7 @@ import { IDataObject } from "@/types/types";
 import BtnAddToCart from "../ui/BtnAddToCart";
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "@/app/context/context";
+import LoadingWidget from "../widgets/LoadingWidget";
 
 export default function ListOfProducts({ data }: { data: IDataObject[] }) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -20,8 +21,8 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
 
   if (searchArray.length === 0) {
     return (
-      <div>
-        {isLoading ? <p>Loading...</p> : <p>No items match your search</p>}
+      <div className="flex justify-center">
+        {isLoading ? <LoadingWidget /> : <p>No items match your search</p>}
       </div>
     );
   }
