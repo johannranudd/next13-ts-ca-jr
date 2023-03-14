@@ -10,10 +10,10 @@ export default function SingleItemPriceComponent({
       {discountedPrice < price ? (
         <div className="">
           <strong>
-            {discountedPrice}{" "}
             <small className="line-through text-gray-400 dark:text-gray-500">
               {price}
-            </small>
+            </small>{" "}
+            {discountedPrice}
           </strong>
           <p>
             (Save: <strong>{(price - discountedPrice).toFixed(2)}</strong>)
