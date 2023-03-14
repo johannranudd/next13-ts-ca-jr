@@ -8,10 +8,11 @@ import TagsComponent from "./TagComponent";
 import SingleItemPriceComponent from "./SingleItemPriceComponent";
 import ReviewsComponent from "./ReviewsComponent";
 import ModalComponent from "./ModalComponent";
+import BtnAddToCart from "@/app/components/ui/BtnAddToCart";
 
 export async function generateStaticParams() {
   const data = await getData();
-  return data?.map((product: any) => ({
+  return data?.map((product: IDataObject) => ({
     productId: product.id,
   }));
 }
@@ -49,13 +50,19 @@ export default function ProductDetailPage({
             className="object-cover"
           />
         </div>
-        <div className="p-2 space-y-5">
+        <div className="relative p-2 space-y-5">
           <div className="pb-2 border-dotted border-b border-thirdClr dark:border-thirdClrDark">
             {description}
           </div>
           <SingleItemPriceComponent {...data} />
           <RatingComponent rating={rating} isTotalRating={isTotalRating} />
-          <TagsComponent tags={tags} />
+
+          <div className="flex justify-between items-end">
+            <TagsComponent tags={tags} />
+            <div className="-translate-x-[110px] pb-2">
+              <BtnAddToCart {...data} />
+            </div>
+          </div>
         </div>
       </div>
       <ReviewsComponent reviews={reviews} />

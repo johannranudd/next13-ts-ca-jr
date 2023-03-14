@@ -2,7 +2,13 @@
 import { MdOutlineStarBorder } from "react-icons/md";
 import { useRef, useEffect } from "react";
 
-export default function RatingComponent({ rating, isTotalRating }: any) {
+export default function RatingComponent({
+  rating,
+  isTotalRating,
+}: {
+  rating: number;
+  isTotalRating?: boolean;
+}) {
   const outerContainerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 

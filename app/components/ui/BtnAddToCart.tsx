@@ -1,6 +1,7 @@
 "use client";
 import { useGlobalContext } from "@/app/context/context";
-export default function BtnAddToCart({ item }: any) {
+import { IDataObject } from "@/types/types";
+export default function BtnAddToCart(item: IDataObject) {
   const { dispatch } = useGlobalContext();
   return (
     <button
@@ -9,4 +10,3 @@ export default function BtnAddToCart({ item }: any) {
     ></button>
   );
 }
-// before:bg-green-500 after:bg-red-500

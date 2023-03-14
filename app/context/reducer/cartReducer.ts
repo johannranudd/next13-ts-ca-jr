@@ -8,7 +8,10 @@ export const initialState: IState = {
   totalPrice: 0,
 };
 
-export function reducer(state: IState, action: any) {
+export function reducer(
+  state: IState,
+  action: { type: string; payload?: any }
+) {
   switch (action.type) {
     case "INCREMENT":
       return {
@@ -39,22 +42,7 @@ export function reducer(state: IState, action: any) {
         totalPrice: 0,
       };
     default: {
-      //   throw Error("Unknown action: " + action.type);
       return state;
     }
   }
 }
-
-// function getUniqueItems(products: Array<IDataObject>) {
-//   const newArr: Array<IDataObject> = [];
-//   products.reduce((total: any, value: IDataObject) => {
-//     if (!total.includes(value.id)) {
-//       total.push(value.id);
-//       newArr.push({ ...value, item });
-//     }
-//     return total;
-//   }, []);
-
-//   // console.log(newArr);
-//   return newArr;
-// }

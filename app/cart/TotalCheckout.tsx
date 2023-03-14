@@ -23,7 +23,7 @@ export default function TotalCheckout() {
     }
   }
 
-  if (cartState.products.length === 0) return <div></div>;
+  if (cartState.products.length === 0) return null;
 
   return (
     <div className="py-4 w-[95%] mx-auto max-w-[280px] sm:max-w-[300px]">

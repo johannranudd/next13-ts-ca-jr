@@ -20,7 +20,7 @@ export default function ListOfPurchases() {
     }
   }, [document.readyState]);
 
-  if (havePurchased.length === 0) return <div></div>;
+  if (havePurchased.length === 0) return null;
 
   return (
     <>

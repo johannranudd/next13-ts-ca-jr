@@ -1,7 +1,7 @@
 import { IReviews } from "@/types/types";
 import RatingComponent from "./RatingComponent";
 
-export default function ReviewsComponent({ reviews }: any) {
+export default function ReviewsComponent({ reviews }: { reviews: IReviews[] }) {
   if (reviews.length === 0) return null;
   return (
     <div className="w-[95%] max-w-[400px] mx-auto space-y-4">
