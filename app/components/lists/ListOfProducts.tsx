@@ -50,13 +50,13 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
               </Link>
             </div>
             <div className="flex justify-between p-2">
-              <h4 className="font-bold">{title}</h4>
+              <h4 className="font-bold break-all">{title}</h4>
               <span className="font-bold text-thirdClr dark:text-thirdClrDark">
                 {discountedPrice}
               </span>
             </div>
             <div className="py-4 px-2">
-              <BtnAddToCart item={item} />
+              <BtnAddToCart {...item} />
             </div>
           </li>
         );

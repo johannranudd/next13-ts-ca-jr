@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-export default function ModalComponent({ title, imageUrl }: any) {
+export default function ModalComponent({
+  title,
+  imageUrl,
+}: {
+  title: string;
+  imageUrl: string;
+}) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
