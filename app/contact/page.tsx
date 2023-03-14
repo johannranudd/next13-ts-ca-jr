@@ -104,7 +104,6 @@ export default function ContactPage() {
       <form
         onSubmit={handleSubmit}
         className="w-[95%] max-w-[400px] mx-auto p-4 space-y-3 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary shadow-#3"
-        // className="w-[95%] max-w-[400px] mx-auto p-4 space-y-3 rounded-md border border-secondary dark:border-primary shadow-#3"
       >
         <div className="flex flex-col">
           <label htmlFor="fullName">Full Name</label>

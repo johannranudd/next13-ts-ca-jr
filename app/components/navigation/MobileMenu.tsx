@@ -47,5 +47,3 @@ export default function MobileMenu() {
     </div>
   );
 }
-
-// hover:shadow-[inset_0_-0px_10px_rgba(0,0,0,0.6)]
