@@ -34,7 +34,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    /* display: block; */
+    display: block;
     width: 110px;
     padding: 0.1rem 0rem;
     font-size: 0.5rem;
@@ -47,7 +47,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    /* display: block; */
+    display: block;
     width: 110px;
     padding: 0.1rem 0rem;
     content: "Add to cart";

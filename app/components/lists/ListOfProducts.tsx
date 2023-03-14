@@ -28,7 +28,7 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
   }
 
   return (
-    <ul className="max-w-screen-xl mx-auto grid auto-grid-200 gap-6">
+    <ul className="max-w-screen-xl mx-auto grid xxs:auto-grid-200 gap-6">
       {arrayToUse?.map((item: IDataObject) => {
         const { id, title, imageUrl, discountedPrice } = item;
         return (
