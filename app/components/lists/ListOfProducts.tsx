@@ -37,7 +37,7 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
             className="flex flex-col justify-between border rounded-md overflow-hidden bg-secondary text-primary shadow-#5 dark:bg-primary dark:text-secondary border border-secondary dark:border-primary"
           >
             <div className="relative h-48">
-              <Link href={`/products/${id}`}>
+              <Link role="button" href={`/products/${id}`}>
                 <Image
                   src={imageUrl}
                   alt={`image of ${title}`}

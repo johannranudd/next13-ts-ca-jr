@@ -24,17 +24,7 @@ export default function ProductDetailPage({
 }) {
   const { productId } = params;
   const data: IDataObject = use(getSingleProduct(productId));
-  const {
-    id,
-    title,
-    description,
-    price,
-    discountedPrice,
-    imageUrl,
-    rating,
-    tags,
-    reviews,
-  } = data;
+  const { id, title, description, imageUrl, rating, tags, reviews } = data;
   const isTotalRating = true;
 
   return (
