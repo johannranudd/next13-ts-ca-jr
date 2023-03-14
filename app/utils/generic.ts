@@ -7,7 +7,7 @@ export function getUniqueNumberedSortedCart(array: Array<IDataObject>) {
   return sortedByTitle;
 }
 
-export function getTotals(array: Array<any>): number {
+export function getTotals(array: Array<any>) {
   if (array.length === 0) {
     return 0;
   }
