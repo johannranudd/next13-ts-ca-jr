@@ -33,7 +33,7 @@ export default function SearchBar() {
   }, [search]);
 
   return (
-    <div className="flex justify-center mb-10">
+    <div className="px-2 flex justify-center w-full">
       <input
         type="search"
         value={search}

@@ -94,7 +94,7 @@ export default function FormConponent() {
 
   if (hasBeenSubmitted)
     return (
-      <h1 className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full">
+      <h1 className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full text-[1.8rem]">
         Thank you for your message! <br /> Check the console
       </h1>
     );

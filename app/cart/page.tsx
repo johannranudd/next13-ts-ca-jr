@@ -5,7 +5,7 @@ import LoadingWidget from "../components/widgets/LoadingWidget";
 
 export default function CartPage() {
   return (
-    <div className="mb-48 mt-20">
+    <div className="mt-16 mb-48">
       <Suspense fallback={<LoadingWidget />}>
         <CartList />
         <TotalCheckout />
