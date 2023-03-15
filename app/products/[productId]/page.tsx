@@ -11,6 +11,15 @@ import ModalComponent from "./ModalComponent";
 import BtnAddToCart from "@/app/components/ui/BtnAddToCart";
 import placeholderImage from "../../../images/placeholder-image.png";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { productId: string };
+}) {
+  const product = await getSingleProduct(params.productId);
+  return { title: `${product.title} | Product page` };
+}
+
 export async function generateStaticParams() {
   const data = await getData();
   return data?.map((product: IDataObject) => ({
@@ -27,6 +36,7 @@ export default function ProductDetailPage({
   const data: IDataObject = use(getSingleProduct(productId));
   const { id, title, description, imageUrl, rating, tags, reviews } = data;
   const isTotalRating = true;
+  // metadata.title = `${title} | Product page`;
 
   return (
     <div key={id} className="mb-48 mt-20">

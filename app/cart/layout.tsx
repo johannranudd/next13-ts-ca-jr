@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Cart page",
+};
+
 export default function RootLayout({
   children,
 }: {

@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Checkout page",
+};
+
 export default function RootLayout({
   children,
 }: {

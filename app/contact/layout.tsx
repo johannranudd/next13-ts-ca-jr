@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Contact page",
+};
+
 export default function RootLayout({
   children,
 }: {
