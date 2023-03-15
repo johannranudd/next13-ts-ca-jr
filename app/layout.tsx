@@ -5,8 +5,13 @@ import Navbar from "./components/navigation/Navbar";
 import Footer from "./components/navigation/Footer";
 
 export const metadata = {
-  title: "ca-johann-ranudd",
-  description: "Metadata description",
+  title: {
+    default: "Home Page | JS-frameworks CA Johann Ranudd",
+    template: "%s | JS-frameworks CA Johann Ranudd",
+  },
+  description: "This is an ecommerce website",
+  keywords: "ecommerce",
+  authors: [{ name: "johann ranudd" }],
 };
 
 export default function RootLayout({

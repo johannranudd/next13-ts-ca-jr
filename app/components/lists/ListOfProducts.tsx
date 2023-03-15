@@ -6,6 +6,7 @@ import BtnAddToCart from "../ui/BtnAddToCart";
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "@/app/context/context";
 import LoadingWidget from "../widgets/LoadingWidget";
+import placeholderImage from "../../../images/placeholder-image.png";
 
 export default function ListOfProducts({ data }: { data: IDataObject[] }) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -39,7 +40,7 @@ export default function ListOfProducts({ data }: { data: IDataObject[] }) {
             <div className="relative h-48">
               <Link role="button" href={`/products/${id}`}>
                 <Image
-                  src={imageUrl}
+                  src={imageUrl ?? placeholderImage}
                   alt={`image of ${title}`}
                   fill={true}
                   className="object-cover"
