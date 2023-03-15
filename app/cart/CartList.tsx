@@ -35,7 +35,7 @@ export default function CartList() {
 
   return (
     <>
-      <h1>Cart</h1>
+      <h1 className="text-[1.8rem] py-8">Cart</h1>
       <ul className="w-[95%] max-w-[280px] mx-auto sm:max-w-[650px]">
         {uniqueCart?.map((product: IDataObject) => {
           const { id, title, imageUrl } = product;

@@ -4,8 +4,8 @@ import LoadingWidget from "../components/widgets/LoadingWidget";
 
 export default function ContactPage() {
   return (
-    <div className="mt-28 mb-48">
-      <h1>Contact</h1>
+    <div className="mt-16 mb-48">
+      <h1 className="text-[1.8rem] py-8">Contact</h1>
       <Suspense fallback={<LoadingWidget />}>
         <FormConponent />
       </Suspense>

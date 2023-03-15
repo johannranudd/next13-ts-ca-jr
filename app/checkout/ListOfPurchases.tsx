@@ -25,7 +25,7 @@ export default function ListOfPurchases() {
 
   return (
     <>
-      <h1 className="text-center">Success!</h1>
+      <h1 className="text-[1.8rem] py-8">Success!</h1>
       <p className="text-center">Thank you for your purchase:</p>
       <ul className="py-4 mb-8 w-[90%] mx-auto max-w-[400px] space-y-4">
         {havePurchased?.map((product: IDataObject) => {

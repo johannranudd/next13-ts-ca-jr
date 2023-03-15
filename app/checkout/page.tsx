@@ -5,7 +5,7 @@ import LoadingWidget from "../components/widgets/LoadingWidget";
 
 export default function CheckoutPage() {
   return (
-    <div className="mb-48 mt-20">
+    <div className="mb-48 mt-16">
       <Suspense fallback={<LoadingWidget />}>
         <ListOfPurchases />
         <TotalPriceCheckout />
