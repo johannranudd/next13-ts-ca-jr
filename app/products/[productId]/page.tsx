@@ -9,6 +9,7 @@ import SingleItemPriceComponent from "./SingleItemPriceComponent";
 import ReviewsComponent from "./ReviewsComponent";
 import ModalComponent from "./ModalComponent";
 import BtnAddToCart from "@/app/components/ui/BtnAddToCart";
+import placeholderImage from "../../../images/placeholder-image.png";
 
 export async function generateStaticParams() {
   const data = await getData();
@@ -34,7 +35,7 @@ export default function ProductDetailPage({
         <div className="relative h-64 w-full">
           <ModalComponent {...data} />
           <Image
-            src={imageUrl}
+            src={imageUrl ?? placeholderImage}
             alt={`image of ${title}`}
             fill={true}
             className="object-cover"

@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import placeholderImage from "../../../images/placeholder-image.png";
 export default function ModalComponent({
   title,
   imageUrl,
@@ -23,7 +24,7 @@ export default function ModalComponent({
         <div className="bg-[#000000cc] w-screen h-screen fixed top-0 left-0">
           <div className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50 h-[80%] w-[95%] max-w-[700px]">
             <Image
-              src={imageUrl}
+              src={imageUrl ?? placeholderImage}
               alt={`image of ${title}`}
               fill={true}
               className="object-contain"

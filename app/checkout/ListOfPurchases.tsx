@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getUniqueNumberedSortedCart } from "../utils/generic";
 import { IDataObject } from "@/types/types";
 import Image from "next/image";
+import placeholderImage from "../../images/placeholder-image.png";
 
 export default function ListOfPurchases() {
   const { cartState, dispatch } = useGlobalContext();
@@ -33,7 +34,7 @@ export default function ListOfPurchases() {
             <li key={id} className="flex items-center justify-between">
               <div className="relative h-20 w-20 sm:w-20">
                 <Image
-                  src={imageUrl}
+                  src={imageUrl ?? placeholderImage}
                   alt={`image of ${title}`}
                   fill={true}
                   className="object-cover"

@@ -7,6 +7,7 @@ import PriceComponent from "./PriceComponent";
 import { useEffect, useState } from "react";
 import { getUniqueNumberedSortedCart } from "../utils/generic";
 import Link from "next/link";
+import placeholderImage from "../../images/placeholder-image.png";
 
 export default function CartList() {
   const { cartState, dispatch } = useGlobalContext();
@@ -44,7 +45,7 @@ export default function CartList() {
               <div className="relative w-full h-48 mb-3 sm:m-0 sm:w-64 shadow-#5">
                 <Link href={`/products/${id}`}>
                   <Image
-                    src={imageUrl}
+                    src={imageUrl ?? placeholderImage}
                     alt={`image of ${title}`}
                     fill={true}
                     className="object-cover"
