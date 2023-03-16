@@ -22,7 +22,7 @@ export default function CartList() {
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center">
-        <h1>No items in cart</h1>
+        <h1 className="text-[1.8rem] py-8">No items in cart</h1>
         <Link
           href={`/`}
           className="p-2 rounded-md border border-2 border-thirdClrDark dark:border-thirdClr hover:bg-secondary hover:text-primary hover:dark:bg-primary hover:dark:text-secondary duration-300"

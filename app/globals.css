@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Quattrocento+Sans:ital@1&display=swap");
+
+:root {
+  --primary: #fbf5f5;
+  --secondary: #242431;
+  --thirdClr: #1fb5b5;
+  --thirdClrDark: #006161;
+}
+
 @layer base {
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
@@ -88,13 +97,6 @@
   }
 }
 
-:root {
-  --primary: #fbf5f5;
-  --secondary: #242431;
-  --thirdClr: #1fb5b5;
-  --thirdClrDark: #006161;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -108,20 +110,15 @@ body {
 }
 
 body {
-  /* todo: add font family */
   background-color: var(--bg-color);
   color: var(--text-color);
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 h1,
 h2 {
   text-align: center;
-  /* padding: 2rem 0; */
-  /* font-size: 1.5rem; */
-  /* todo: add font family */
-}
-
-button {
+  font-family: "Quattrocento Sans", sans-serif;
 }
 
 a {
