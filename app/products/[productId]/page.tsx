@@ -36,11 +36,10 @@ export default function ProductDetailPage({
   const data: IDataObject = use(getSingleProduct(productId));
   const { id, title, description, imageUrl, rating, tags, reviews } = data;
   const isTotalRating = true;
-  // metadata.title = `${title} | Product page`;
 
   return (
     <div key={id} className="mb-48 mt-20">
-      <h1>{title}</h1>
+      <h1 className="text-[1.8rem] py-8">{title}</h1>
       <div className="w-[95%] max-w-[400px] mx-auto mb-8 p-2 rounded-md bg-secondary text-primary dark:bg-primary dark:text-secondary shadow-#5">
         <div className="relative h-64 w-full">
           <ModalComponent {...data} />
