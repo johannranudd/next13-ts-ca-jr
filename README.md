@@ -1,4 +1,4 @@
-# Read before grading!!!
+# Please read before grading
 
 This project is made with Next.js version 13.2, Typescript and tailwind hosted on Netlify and Vercel(recomended). I have contacted teachers and gained permission to use this tech for this specific assignment.
 
