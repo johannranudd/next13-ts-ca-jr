@@ -18,3 +18,30 @@ Bellow is an older project to prove that i understand routing in normal React.js
 
 - Netlify link: https://react-cart-johann-ranudd.netlify.app/
 - Github repo: https://github.com/johannranudd/cart
+
+
+## Getting Started
+
+### Installing
+
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/johannranudd/next13-ts-ca-jr.git
+```
+
+2. Install the dependencies:
+
+```
+npm install
+```
+
+### Running
+
+
+To run the app, run the following commands:
+
+```bash
+npm run start
+```
